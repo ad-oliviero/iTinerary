@@ -97,14 +97,11 @@
 				0D34152A2BE226A100B1075A /* VaticanView.swift */,
 				7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */,
 				7250B5702BDFB13F00DED6D8 /* Preview Content */,
-<<<<<<< HEAD
-=======
 				0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */,
 				AE91153E2BE3792200067675 /* MainPageView.swift */,
 				AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */,
 				AE91153C2BE3792200067675 /* PickInterestsView.swift */,
 				AE91153B2BE3792200067675 /* ProfileStepsView.swift */,
->>>>>>> main
 			);
 			path = iTravel;
 			sourceTree = "<group>";
@@ -197,8 +194,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-=======
 				72D51CA12BE1216000327EA9 /* Common.swift in Sources */,
 				AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */,
 				AE9115422BE3792200067675 /* MainPageView.swift in Sources */,
@@ -207,7 +202,6 @@
 				7250B56D2BDFB13D00DED6D8 /* ContentView.swift in Sources */,
 				72D51CA32BE12A8A00327EA9 /* TestAPIView.swift in Sources */,
 				AE9115402BE3792200067675 /* PickInterestsView.swift in Sources */,
->>>>>>> main
 				0D6C2D302BE1029700CE0476 /* StartOrganizingView.swift in Sources */,
 				0D00B9052BE1EF6E004C3052 /* PreviousView.swift in Sources */,
 				0D34152B2BE226A200B1075A /* VaticanView.swift in Sources */,
