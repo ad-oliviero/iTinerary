@@ -7,24 +7,21 @@
 
 import Foundation
 
-// MARK: - AutoComplete Class
-class AutoComplete: GeoRequest {
+// MARK: - AutoCompleteRequest Class
+class AutoCompleteRequest: GeoRequest {
     var text: String
     init(text: String!) {
         self.text = text
         super.init()
-        url.append("geocode/autocomplete?text=\(self.text)&type=city")
+        super.apiType = "geocode/autocomplete?"
+        parameters = "text=\(self.text)&type=city"
     }
     public func responseToJson() async throws -> AutocompleteData {
         do {
-            print(response == nil)
             return try JSONDecoder().decode(AutocompleteData.self, from: response!)
         } catch {
             throw APIError.responseUninitialized
         }
-    }
-    public func responseToString() async throws -> String {
-        String(decoding: response ?? Data(), as: UTF8.self)
     }
 }
 
@@ -138,3 +135,4 @@ struct Parsed: Codable {
         case expectedType = "expected_type"
     }
 }
+

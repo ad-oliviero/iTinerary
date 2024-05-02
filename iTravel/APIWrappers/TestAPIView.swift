@@ -14,10 +14,10 @@ struct TestAPIView: View {
                 Button {
                     Task {
                         do {
-                            let request = AutoComplete(text: "Napo")
+                            let request = IsoLinesRequest(lat: "40.8358846", lon: "14.2487679", isoType: .isochrone, mode: .car, range: 300)
                             try await request.sendRequest()
-                            //print(try await request.responseToString())
-                            print(try await request.responseToJson())
+                            print(try await request.responseToString())
+                            //print(try await request.responseToJson())
                         } catch {
                             print(error.localizedDescription)
                         }

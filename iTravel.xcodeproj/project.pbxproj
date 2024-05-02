@@ -24,6 +24,7 @@
 		72D51CA32BE12A8A00327EA9 /* TestAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */; };
 		72D51CA52BE36FFF00327EA9 /* GeoAPIfy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */; };
 		72D51CA72BE38E1000327EA9 /* AutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA62BE38E1000327EA9 /* AutoComplete.swift */; };
+		72D51CA92BE3964300327EA9 /* Isolines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA82BE3964300327EA9 /* Isolines.swift */; };
 		AE91153F2BE3792200067675 /* ProfileStepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153B2BE3792200067675 /* ProfileStepsView.swift */; };
 		AE9115402BE3792200067675 /* PickInterestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153C2BE3792200067675 /* PickInterestsView.swift */; };
 		AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */; };
@@ -49,6 +50,7 @@
 		72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIView.swift; sourceTree = "<group>"; };
 		72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAPIfy.swift; sourceTree = "<group>"; };
 		72D51CA62BE38E1000327EA9 /* AutoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoComplete.swift; sourceTree = "<group>"; };
+		72D51CA82BE3964300327EA9 /* Isolines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Isolines.swift; sourceTree = "<group>"; };
 		AE91153B2BE3792200067675 /* ProfileStepsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStepsView.swift; sourceTree = "<group>"; };
 		AE91153C2BE3792200067675 /* PickInterestsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickInterestsView.swift; sourceTree = "<group>"; };
 		AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalePreferencesView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */,
 				72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */,
 				72D51CA62BE38E1000327EA9 /* AutoComplete.swift */,
+				72D51CA82BE3964300327EA9 /* Isolines.swift */,
 			);
 			path = APIWrappers;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				0D00B9032BE1EB5F004C3052 /* ArtView.swift in Sources */,
 				7250B56B2BDFB13D00DED6D8 /* iTravelApp.swift in Sources */,
 				0D5C283C2BE26F630069B92B /* ContentView.swift in Sources */,
+				72D51CA92BE3964300327EA9 /* Isolines.swift in Sources */,
 				0D34152F2BE2552E00B1075A /* ArchitectureView.swift in Sources */,
 				0D5C283E2BE271A10069B92B /* Places.swift in Sources */,
 				0D5C28382BE26A230069B92B /* SomethingView.swift in Sources */,
