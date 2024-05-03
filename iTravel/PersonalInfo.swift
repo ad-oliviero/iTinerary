@@ -5,9 +5,13 @@ struct PersonalInfo: View {
     @State var birth = ""
     @State var selectedGender = ""
     @State var city = ""
+    @State var state = ""
     @State var country = ""
     @State private var isBirthPickerPresented = false
     @State private var isGenderPickerPresented = false
+    @State private var isFetchingData = false
+    @State private var isErrorOccurred = false
+    @State private var combinedText = ""
     
     var body: some View {
         
@@ -36,14 +40,12 @@ struct PersonalInfo: View {
                         }
                         
                         Button(action: {
-                           
                             self.isBirthPickerPresented = true
                         }) {
                             Text("Birth").foregroundColor(.black)
                         }
                         
                         Button(action: {
-                            
                             self.isGenderPickerPresented = true
                         }) {
                             HStack{
@@ -52,14 +54,21 @@ struct PersonalInfo: View {
                             }
                         }
                         
-                        HStack {
-                            Text("Country")
-                            TextField("Country", text: $country)
-                        }
-                        
-                        HStack {
-                            Text("City")
-                            TextField("City", text: $city)
+                        if isFetchingData {
+                            Text("Fetching data...")
+                        } else if isErrorOccurred {
+                            Text("An error occurred while fetching data.")
+                                .foregroundColor(.red)
+                        } else {
+                            // Mostriamo i dati solo se non ci sono errori e non c'è caricamento dei dati in corso
+                            HStack{
+                                TextField("City", text: $combinedText)
+                                    .onChange(of: combinedText) { newValue in
+                                        if newValue.count > 2 {
+                                            fetchCityData(city: newValue)
+                                        }
+                                    }
+                            }
                         }
                     }
                 }
@@ -74,6 +83,7 @@ struct PersonalInfo: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .presentationDetents([.height(180), .medium, .large])
                 }
+                
                 .navigationBarItems(
                     trailing: NavigationLink(destination: ProfileStepsView()) {
                         HStack{
@@ -88,8 +98,38 @@ struct PersonalInfo: View {
             .padding()
         }
     }
+    
+    // Function to fetch city data
+    private func fetchCityData(city: String) {
+        print("Fetching data for city: \(city)")
+
+        isFetchingData = true
+        
+        Task {
+            do {
+                let request = AutoCompleteAPIRequest(text: city)
+                try await request.sendRequest()
+                if let firstFeature = try? await request.responseToJson().features.first {
+                    self.city = firstFeature.properties.city
+                    self.state = firstFeature.properties.state
+                    self.country = firstFeature.properties.country
+                    self.combinedText = "\(self.city), \(self.state), \(self.country)"
+                }
+                isFetchingData = false
+                isErrorOccurred = false
+            } catch {
+                print(error.localizedDescription)
+                isFetchingData = false
+                isErrorOccurred = true
+            }
+        }
+    }
 }
 
-#Preview {
-    PersonalInfo()
+
+struct PersonalInfo_Previews: PreviewProvider {
+    static var previews: some View {
+        PersonalInfo()
+    }
 }
+
