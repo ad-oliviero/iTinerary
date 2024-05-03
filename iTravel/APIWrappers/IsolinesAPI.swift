@@ -1,5 +1,5 @@
 //
-//  Isolines.swift
+//  IsolinesAPI.swift
 //  iTravel
 //
 //  Created by Adriano Oliviero on 02/05/24.
@@ -7,8 +7,7 @@
 
 import Foundation
 
-// MARK: - IsoLines Class
-class IsoLinesRequest: GeoRequest {
+class IsoLinesAPIRequest: GeoRequest {
     enum IsoType: String {
         case isochrone = "time"
         case isodistance = "distance"
@@ -36,8 +35,8 @@ class IsoLinesRequest: GeoRequest {
         self.mode = mode
         self.range = range
         super.init()
-        super.apiType = "isoline?"
-        super.parameters = "&traffic=approximated&lat=\(self.lat)&lon=\(self.lon)&range=\(self.range)&type=\(self.isoType.rawValue)&mode=\(self.mode.rawValue)"
+        apiType = "isoline?"
+        parameters = "traffic=approximated&lat=\(self.lat)&lon=\(self.lon)&range=\(self.range)&type=\(self.isoType.rawValue)&mode=\(self.mode.rawValue)"
     }
     // TODO: Implement this ADT
 //    public func responseToJson() async throws -> ISOLinesData {

@@ -1,5 +1,5 @@
 //
-//  AutoComplete.swift
+//  AutoCompleteAPI.swift
 //  iTravel
 //
 //  Created by Adriano Oliviero on 02/05/24.
@@ -7,8 +7,7 @@
 
 import Foundation
 
-// MARK: - AutoCompleteRequest Class
-class AutoCompleteRequest: GeoRequest {
+class AutoCompleteAPIRequest: GeoRequest {
     var text: String
     init(text: String!) {
         self.text = text
