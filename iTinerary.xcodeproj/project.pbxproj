@@ -16,7 +16,6 @@
 		0D6C2D302BE1029700CE0476 /* StartOrganizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */; };
 		0DB910CD2BE3A29E008B4341 /* ItineraryView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */; };
 		16A32FD72BE37D0400926008 /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A32FD62BE37D0400926008 /* PersonalInfo.swift */; };
-		16A32FD92BE3801500926008 /* BirthDateSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A32FD82BE3801500926008 /* BirthDateSelection.swift */; };
 		7250B56F2BDFB13F00DED6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */; };
 		7250B5722BDFB13F00DED6D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B5712BDFB13F00DED6D8 /* Preview Assets.xcassets */; };
 		72B5724F2BE4DD560021A002 /* CommonStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5724E2BE4DD560021A002 /* CommonStructs.swift */; };
@@ -49,7 +48,6 @@
 		0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOrganizingView.swift; sourceTree = "<group>"; };
 		0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView1.swift; sourceTree = "<group>"; };
 		16A32FD62BE37D0400926008 /* PersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
-		16A32FD82BE3801500926008 /* BirthDateSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateSelection.swift; sourceTree = "<group>"; };
 		7250B5672BDFB13D00DED6D8 /* iTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7250B5712BDFB13F00DED6D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				16A32FD62BE37D0400926008 /* PersonalInfo.swift */,
-				16A32FD82BE3801500926008 /* BirthDateSelection.swift */,
 				AE91153B2BE3792200067675 /* ProfileStepsView.swift */,
 				AE91153C2BE3792200067675 /* PickInterestsView.swift */,
 				AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */,
@@ -258,7 +255,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16A32FD92BE3801500926008 /* BirthDateSelection.swift in Sources */,
 				72D51CA12BE1216000327EA9 /* Common.swift in Sources */,
 				72D51CBA2BE4414B00327EA9 /* PlacesDetailsAPI.swift in Sources */,
 				AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */,

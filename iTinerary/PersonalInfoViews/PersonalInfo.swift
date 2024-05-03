@@ -1,9 +1,12 @@
+import PhotosUI
 import SwiftUI
 
 struct PersonalInfo: View {
+  @State private var selectedImageItem: PhotosPickerItem? = nil
+  @State private var selectedImageData: Data? = nil
   @State var name = ""
-  @State var birth = ""
-  @State var selectedGender = ""
+  @State var birth = Date()
+  @State var selectedGender = "Your gender"
   @State var city = ""
   @State var state = ""
   @State var country = ""
@@ -17,43 +20,57 @@ struct PersonalInfo: View {
 
     NavigationView {
       VStack {
-        Circle()
-          .fill(Color.gray)
-          .frame(width: 150, height: 150)
-          .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
-          .padding()
-        Button(action: {
-
-        }) {
-          Text("Add photo")
-            .foregroundColor(.white)
+        if selectedImageData != nil {
+          let uiImage = UIImage(data: selectedImageData!)!
+          Image(uiImage: uiImage)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 5)
+            .clipShape(Circle())
+            .frame(width: 150, height: 150)
+        } else {
+          Circle()
+            .fill(
+              LinearGradient(
+                colors: [Color.white, Color.black.opacity(0)], startPoint: .top, endPoint: .bottom)
+            )
+            .frame(width: 150, height: 150)
+        }
+        PhotosPicker(
+          selection: $selectedImageItem,
+          matching: .images,
+          photoLibrary: .shared()
+        ) {
+          Text(selectedImageData == nil ? "Add photo" : "Change photo")
+            .foregroundColor(.blue)
             .padding()
-            .background(Color.blue)
-            .cornerRadius(10)
+        }
+        .onChange(of: selectedImageItem) { newItem, oldItem in
+          Task {
+            if let data = try? await newItem?.loadTransferable(type: Data.self) {
+              selectedImageData = data
+            }
+          }
         }
 
         Form {
           Section(header: Text("Personal Informations")) {
             HStack {
               Text("Name")
-              TextField("Name", text: $name)
+              TextField("Your name", text: $name)
             }
 
-            Button(action: {
-              self.isBirthPickerPresented = true
-            }) {
-              Text("Birth").foregroundColor(.black)
-            }
+            DatePicker(
+              "Birth", selection: $birth, in: ...Date(),
+              displayedComponents: .date
+            ).fixedSize()
 
-            Button(action: {
-              self.isGenderPickerPresented = true
-            }) {
-              HStack {
-                Text("Gender").foregroundColor(.black)
-                Text(selectedGender).foregroundColor(.gray)
-              }
+            HStack {
+              Text("Gender")
+              Text(selectedGender).onTapGesture(perform: {
+                self.isGenderPickerPresented = true
+              }).foregroundStyle(selectedGender == "Your gender" ? .tertiary : .primary)
             }
-
             if isFetchingData {
               Text("Fetching data...")
             } else if isErrorOccurred {
@@ -62,12 +79,13 @@ struct PersonalInfo: View {
             } else {
               // Mostriamo i dati solo se non ci sono errori e non c'è caricamento dei dati in corso
               HStack {
-                TextField("City", text: $combinedText)
-                  .onChange(of: combinedText) { newValue in
-                    if newValue.count > 2 {
-                      fetchCityData(city: newValue)
-                    }
-                  }
+                Text("City")
+                TextField("Your city", text: $combinedText)
+                //                  .onChange(of: combinedText) { newValue in
+                //                    if newValue.count > 2 {
+                //                      fetchCityData(city: newValue)
+                //                    }
+                //                  }
               }
             }
           }
