@@ -78,12 +78,14 @@ struct PersonalInfo: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .presentationDetents([.medium, .large])
         }
-        .sheet(isPresented: $isGenderPickerPresented) {
-          GenderSelectionView()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .presentationDetents([.height(180), .medium, .large])
-        }
-
+        .confirmationDialog(
+          "Select Your Gender", isPresented: $isGenderPickerPresented,
+          actions: {
+            Button("Male") { self.selectedGender = "Male" }
+            Button("Female") { self.selectedGender = "Female" }
+            Button("Other") { self.selectedGender = "Other" }
+          }
+        )
         .navigationBarItems(
           trailing: NavigationLink(destination: ProfileStepsView()) {
             HStack {
@@ -126,8 +128,6 @@ struct PersonalInfo: View {
   }
 }
 
-struct PersonalInfo_Previews: PreviewProvider {
-  static var previews: some View {
-    PersonalInfo()
-  }
+#Preview {
+  PersonalInfo()
 }
