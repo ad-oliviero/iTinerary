@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct PersonalPreferencesView: View {
-    @State private var selectedIndices: [Int?] = Array(repeating: nil, count: 5)
+    @State private var selectedIndices: [Int?] = Array(repeating: nil, count: 8)
 
-    let choices: [[String]] = [["Adventure", "Relax"], ["Public transport", "Private transport"], ["Cultural trip", "Entertainment"], ["Local cuisine", "International cuisine"], ["City exploration", "Nature immersion"]]
+    let choices: [[String]] = [["Adventure", "Relax"], ["Public transport", "Private transport"], ["Cultural trip", "Entertainment"], ["Local cuisine", "International cuisine"], ["City exploration", "Nature immersion"], ["Wheelchair", "No Wheelchair"], ["No vegan", "Vegan"], ["Gluten Free", "With Gluten"]]
     
     var allChoicesMade: Bool {
         !selectedIndices.contains(nil)
@@ -82,9 +82,7 @@ struct PersonalPreferencesView: View {
     }
 }
 
-struct PersonalPreferencesView_Previews: PreviewProvider {
-    static var previews: some View {
-        PersonalPreferencesView()
-    }
+#Preview {
+    PersonalPreferencesView()
 }
 

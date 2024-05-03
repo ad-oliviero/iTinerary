@@ -15,18 +15,18 @@ struct ItineraryView3: View {
         NavigationStack {
             VStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(Color.white) // Background color of the rectangle
-                    .frame(height: 30) // Adjust height of the rectangle
+                    .foregroundColor(Color.white)
+                    .frame(height: 30)
                     .overlay(
                         HStack {
-                            Text(Lunch) .font(.headline) // Adjust font size and style
-                            Text(selectedDate, style: .date) // Display only time
+                            Text(Lunch) .font(.headline)
+                            Text(selectedDate, style: .date)
                                 .font(.headline)
-                            Text(selectedDate, style: .time) // Display only time
-                                .font(.headline) // Adjust font size and style
+                            Text(selectedDate, style: .time)
+                                .font(.headline)
                             
                         }
-                            .padding(.bottom, 100) // Add padding to the content inside the rectangle
+                            .padding(.bottom, 100)
                     )
                 
                 HStack{
@@ -36,7 +36,7 @@ struct ItineraryView3: View {
                     }.padding(.leading, -25)
                     Image("Rectangle 5")
                         .aspectRatio(contentMode: .fit)
-                // Add padding to separate the NavigationLink from the image
+               
                 }
                 Image("Frame 3").padding(.top, 40)
                 Section{
@@ -45,12 +45,8 @@ struct ItineraryView3: View {
                         HStack{
                                 Text("Arriving at")
                                 .font(.headline)
-                                .fontWeight(.medium) // You can adjust font size and style as needed
-                                Text("3.30 PM")
-                                    .font(.subheadline) // You can adjust font size and style as needed
-                                    .foregroundColor(.gray).padding(.leading, 30) // You can adjust color as needed
                             
-                            Spacer() // Add spacer to push the trailing text to the right edge
+                            Spacer()
                             
                         }
                     }//MARK: END VSTACK
@@ -73,20 +69,17 @@ struct ItineraryView3: View {
                         
                             Text("Street")
                             .font(.headline)
-                            .fontWeight(.medium) // You can adjust font size and style as needed
-                            Text("Via del Pellegrino, 11/12")
-                                .font(.subheadline) // You can adjust font size and style as needed
-                                .foregroundColor(.gray).padding(.leading, 55) // You can adjust color as needed
-
-                        Spacer() // Add spacer to push the trailing text to the right edge
+                        Spacer()
                         
                     }
                 }.padding(.top, 20).padding(.leading, 40) //MARK: END  SECTION 1
             }.padding(.top, -70)
                   .navigationTitle("Your itinerary")
-                  .padding() // Add padding to the entire VStack
+                  .padding()
+            
               }
-              .ignoresSafeArea() // Ignore safe area to cover the entire screen
+              .ignoresSafeArea()
+        
     }
 }
 

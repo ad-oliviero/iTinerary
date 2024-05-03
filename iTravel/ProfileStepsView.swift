@@ -13,7 +13,7 @@ struct ProfileStepsView: View {
         NavigationStack{
             VStack {
                 
-                Image("Image")
+                Image("profile")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())

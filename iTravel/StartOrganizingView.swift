@@ -1,20 +1,21 @@
-//
-//  StartOrganizingView.swift
-//  iTravel
-//
-//  Created by Franklyn Chiemeka Ekoh on 30/04/24.
-//
-
 import SwiftUI
 
 struct StartOrganizingView: View {
-    @State var Dates: String = ""
+    var myCity = SharedCity()
+    @State var Dates: Set<DateComponents> = []
     @State var Budget: String = ""
-    @State var City: String = ""
+    @State var city: String = ""
+    @State private var isNextViewActive = false // Stato per controllare la navigazione
+    
     var body: some View {
-        NavigationStack{
-                Text("Give use your information").padding(.leading, -155 ).padding(.top)
+        NavigationStack {
+            VStack(alignment: .leading) {
+                Text("Give us your information")
+                    .padding(.top).padding(.leading)
                 List {
+                    Section(header: Text("City")) {
+                        TextField("Enter the city you want to visit", text: $city)
+                    }
                     
                     Section{
                         HStack{
@@ -40,7 +41,7 @@ struct StartOrganizingView: View {
                             
                             
                             
-                            TextField("value", text: $Dates).padding(.leading)
+//                            TextField("value", text: $Dates).padding(.leading)
                             
                             
                         }//MARK: END HSTACK
@@ -55,7 +56,7 @@ struct StartOrganizingView: View {
                             
                             
                             
-                            TextField("value", text: $City).padding(.leading)
+//                            TextField("value", text: City).padding(.leading)
                             
                             
                         }//MARK: END HSTACK
@@ -80,13 +81,16 @@ struct StartOrganizingView: View {
                                 Image(systemName: "chevron.right")
                             }
                         }
-                        
-                    )
-                
-        }// MARK: END NAVSTACK
+                )
+            }
+        }
     }
 }
 
-#Preview {
-    StartOrganizingView()
+struct StartOrganizingView_Previews: PreviewProvider {
+    static var previews: some View {
+        StartOrganizingView()
+    }
 }
+
+
