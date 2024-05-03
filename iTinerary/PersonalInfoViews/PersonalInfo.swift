@@ -10,7 +10,6 @@ struct PersonalInfo: View {
   @State var city = ""
   @State var state = ""
   @State var country = ""
-  @State private var isBirthPickerPresented = false
   @State private var isGenderPickerPresented = false
   @State private var isFetchingData = false
   @State private var isErrorOccurred = false
@@ -91,11 +90,6 @@ struct PersonalInfo: View {
           }
         }
         .navigationTitle("Personal Info")
-        .sheet(isPresented: $isBirthPickerPresented) {
-          BirthDateSelection()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .presentationDetents([.medium, .large])
-        }
         .confirmationDialog(
           "Select Your Gender", isPresented: $isGenderPickerPresented,
           actions: {
