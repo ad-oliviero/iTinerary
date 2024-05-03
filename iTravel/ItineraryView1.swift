@@ -40,7 +40,7 @@ struct ItineraryView1: View {
                                 activity = "Rome"
                                 image = "Rectangle 3" // Update image
                                 destination = "Roma Fiumicino" // Update airport name
-                                shifter = "Frame 3"
+                                shifter = "Frame 1"
                                 Title = "Airport"
                                 Title2 = "Arriving at"
                             }
@@ -80,7 +80,7 @@ struct ItineraryView1: View {
                         {activity = "Rome"
                             image = "Rectangle 3" // Update image
                             destination = "Roma Fiumicino" // Update airport name
-                            shifter = "Frame 3"
+                            shifter = "Frame 1"
                             Title = "Airport"
                             Title2 = "Arriving at"
                             
