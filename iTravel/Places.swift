@@ -34,3 +34,14 @@ struct Sport: Identifiable{
     var image: String
     var isClicked: Bool
 }
+
+struct Recap: Identifiable{
+    var id  = UUID()
+    var Airport: String
+    var transportation: String
+    var Lunch: String
+    var meal: String
+    var Visit: String
+    var Architecture: String
+    var time: String
+}

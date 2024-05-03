@@ -10,7 +10,7 @@ import SwiftUI
 struct ArchitectureView: View {
     @State var prize: String = "Prize"
     @State var event:String  = "Location to visit"
-    @State var time: String  = "time"
+    @State var time: String = "time"
     var myData = sharedData
     var body: some View {
         NavigationStack{

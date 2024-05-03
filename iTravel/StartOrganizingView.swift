@@ -48,7 +48,7 @@ struct StartOrganizingView: View {
                     
                     Section{
                         HStack{
-                            Image(systemName: "calendar")
+                            Image(systemName: "location.north.fill")
                                 .padding(0.0)
                             Text("City")
                                 .padding(.trailing, 25)
