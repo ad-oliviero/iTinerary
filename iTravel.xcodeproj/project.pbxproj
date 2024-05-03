@@ -154,14 +154,14 @@
 		72B572542BE569760021A002 /* ItineraryViews */ = {
 			isa = PBXGroup;
 			children = (
+				AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */,
+				0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */,
+				AE2E1CA32BE3D640005A7F02 /* RecapView.swift */,
+				0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */,
 				0D34152E2BE2552E00B1075A /* ArchitectureView.swift */,
 				0D34152C2BE2550A00B1075A /* SportView.swift */,
 				0D00B9022BE1EB5F004C3052 /* ArtView.swift */,
 				0D34152A2BE226A100B1075A /* VaticanView.swift */,
-				AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */,
-				AE2E1CA32BE3D640005A7F02 /* RecapView.swift */,
-				0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */,
-				0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */,
 			);
 			path = ItineraryViews;
 			sourceTree = "<group>";
