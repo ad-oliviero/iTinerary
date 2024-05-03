@@ -11,7 +11,11 @@ import SwiftUI
 struct iTravelApp: App {
     var body: some Scene {
         WindowGroup {
-            StartOrganizingView()
+            PersonalInfo()
         }
     }
+}
+
+#Preview {
+    ContentView()
 }
