@@ -105,7 +105,9 @@ struct ItineraryView1: View {
                             shifter = "Frame 3"
                         }
                                     }) {
-                        Image(systemName: "chevron.right")
+                                        
+                                        if (counter <= 1){
+                                            Image(systemName: "chevron.right")}
                     }
                     .padding(.leading, 7)
                 }
