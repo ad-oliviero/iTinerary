@@ -41,7 +41,7 @@ struct StartOrganizingView: View {
                             
                             
                             
-                            TextField("value", text: $Dates).padding(.leading)
+//                            TextField("value", text: $Dates).padding(.leading)
                             
                             
                         }//MARK: END HSTACK
@@ -56,7 +56,7 @@ struct StartOrganizingView: View {
                             
                             
                             
-                            TextField("value", text: $City).padding(.leading)
+//                            TextField("value", text: City).padding(.leading)
                             
                             
                         }//MARK: END HSTACK
@@ -81,7 +81,6 @@ struct StartOrganizingView: View {
                                 Image(systemName: "chevron.right")
                             }
                         }
-                    }
                 )
             }
         }

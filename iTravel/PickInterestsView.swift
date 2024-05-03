@@ -12,8 +12,12 @@ struct PickInterestsView: View {
 
     let categories = [
         "activity",
-        "commercial",
+        "adult",
+        "beach",
+        "building",
+        "camping",
         "catering",
+        "commercial",
         "education",
         "entertainment",
         "heritage",
@@ -24,14 +28,10 @@ struct PickInterestsView: View {
         "pet",
         "production",
         "railway",
-        "tourism",
         "religion",
-        "camping",
-        "beach",
-        "adult",
-        "building",
         "ski",
         "sport",
+        "tourism",
     ]
     
     var body: some View {
