@@ -23,10 +23,13 @@
 		72D51CA12BE1216000327EA9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA02BE1216000327EA9 /* Common.swift */; };
 		72D51CA32BE12A8A00327EA9 /* TestAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */; };
 		72D51CA52BE36FFF00327EA9 /* GeoAPIfy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */; };
+		AE2E1C9E2BE3D50D005A7F02 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1C9D2BE3D50D005A7F02 /* City.swift */; };
+		AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */; };
+		AE2E1CA22BE3D55E005A7F02 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */; };
+		AE2E1CA42BE3D640005A7F02 /* RecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CA32BE3D640005A7F02 /* RecapView.swift */; };
 		AE91153F2BE3792200067675 /* ProfileStepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153B2BE3792200067675 /* ProfileStepsView.swift */; };
 		AE9115402BE3792200067675 /* PickInterestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153C2BE3792200067675 /* PickInterestsView.swift */; };
 		AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */; };
-		AE9115422BE3792200067675 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153E2BE3792200067675 /* MainPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,10 +50,13 @@
 		72D51CA02BE1216000327EA9 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIView.swift; sourceTree = "<group>"; };
 		72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAPIfy.swift; sourceTree = "<group>"; };
+		AE2E1C9D2BE3D50D005A7F02 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedCity.swift; sourceTree = "<group>"; };
+		AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
+		AE2E1CA32BE3D640005A7F02 /* RecapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapView.swift; sourceTree = "<group>"; };
 		AE91153B2BE3792200067675 /* ProfileStepsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStepsView.swift; sourceTree = "<group>"; };
 		AE91153C2BE3792200067675 /* PickInterestsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickInterestsView.swift; sourceTree = "<group>"; };
 		AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalePreferencesView.swift; sourceTree = "<group>"; };
-		AE91153E2BE3792200067675 /* MainPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,8 @@
 				72D51C9F2BE1213F00327EA9 /* APIWrappers */,
 				7250B56A2BDFB13D00DED6D8 /* iTravelApp.swift */,
 				0D5C28392BE26BD50069B92B /* Data.swift */,
+				AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */,
+				AE2E1C9D2BE3D50D005A7F02 /* City.swift */,
 				0D5C283D2BE271A10069B92B /* Places.swift */,
 				0D5C28372BE26A230069B92B /* SomethingView.swift */,
 				0D5C283B2BE26F630069B92B /* ContentView.swift */,
@@ -93,12 +101,12 @@
 				0D34152C2BE2550A00B1075A /* SportView.swift */,
 				0D00B9022BE1EB5F004C3052 /* ArtView.swift */,
 				0D00B9042BE1EF6E004C3052 /* PreviousView.swift */,
-				0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */,
 				0D34152A2BE226A100B1075A /* VaticanView.swift */,
 				7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */,
 				7250B5702BDFB13F00DED6D8 /* Preview Content */,
+				AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */,
+				AE2E1CA32BE3D640005A7F02 /* RecapView.swift */,
 				0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */,
-				AE91153E2BE3792200067675 /* MainPageView.swift */,
 				AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */,
 				AE91153C2BE3792200067675 /* PickInterestsView.swift */,
 				AE91153B2BE3792200067675 /* ProfileStepsView.swift */,
@@ -196,15 +204,15 @@
 			files = (
 				72D51CA12BE1216000327EA9 /* Common.swift in Sources */,
 				AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */,
-				AE9115422BE3792200067675 /* MainPageView.swift in Sources */,
+				AE2E1CA22BE3D55E005A7F02 /* MainPageView.swift in Sources */,
 				72D51CA52BE36FFF00327EA9 /* GeoAPIfy.swift in Sources */,
 				AE91153F2BE3792200067675 /* ProfileStepsView.swift in Sources */,
-				7250B56D2BDFB13D00DED6D8 /* ContentView.swift in Sources */,
 				72D51CA32BE12A8A00327EA9 /* TestAPIView.swift in Sources */,
 				AE9115402BE3792200067675 /* PickInterestsView.swift in Sources */,
 				0D6C2D302BE1029700CE0476 /* StartOrganizingView.swift in Sources */,
 				0D00B9052BE1EF6E004C3052 /* PreviousView.swift in Sources */,
 				0D34152B2BE226A200B1075A /* VaticanView.swift in Sources */,
+				AE2E1CA42BE3D640005A7F02 /* RecapView.swift in Sources */,
 				0D34152D2BE2550A00B1075A /* SportView.swift in Sources */,
 				0D00B9032BE1EB5F004C3052 /* ArtView.swift in Sources */,
 				7250B56B2BDFB13D00DED6D8 /* iTravelApp.swift in Sources */,
@@ -212,7 +220,9 @@
 				0D34152F2BE2552E00B1075A /* ArchitectureView.swift in Sources */,
 				0D5C283E2BE271A10069B92B /* Places.swift in Sources */,
 				0D5C28382BE26A230069B92B /* SomethingView.swift in Sources */,
+				AE2E1C9E2BE3D50D005A7F02 /* City.swift in Sources */,
 				0D5C283A2BE26BD50069B92B /* Data.swift in Sources */,
+				AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

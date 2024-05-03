@@ -61,7 +61,7 @@ struct ArchitectureView: View {
                             Text("Back")
                         }
                     }*/
-                    trailing: NavigationLink(destination: SomethingView()) {
+                    trailing: NavigationLink(destination: RecapView()) {
                         HStack {
                             Text("Next")
                             Image(systemName: "chevron.right")

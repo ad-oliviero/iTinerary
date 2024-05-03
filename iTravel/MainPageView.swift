@@ -3,25 +3,29 @@ import SwiftUI
 struct MainPageView: View {
     @State private var isModalPresented = false
     
-    var done = ["Barcelona", "Paris", "Milan", "London"]
+    var Done = sharedCity.done
     
-    var toDo = ["London"]
+    var ToDo = sharedCity.toDo
     
     var body: some View {
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("To do")
-                        .font(.headline)
-                        .padding(.top).padding(.leading, 20)
+                    if !ToDo.isEmpty {
+                                    Text("To do")
+                                    .font(.headline)
+                                    .padding(.top)
+                                    .padding(.leading, 20)
+                                    .multilineTextAlignment(.leading)
+                                        }
                     
                     
                     VStack(spacing: 20) {
-                        ForEach(toDo, id: \.self) { city in
+                        ForEach(ToDo) { city in
                             ZStack (alignment: .bottomLeading) {
                                 
-                                Image(city.lowercased())
+                                Image(city.image.lowercased())
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 360, height: 150)
@@ -30,7 +34,7 @@ struct MainPageView: View {
                                         Color.black.opacity(0.5)
                                     )
                                     .overlay(
-                                        Text(city)
+                                        Text(city.name)
                                             .foregroundColor(.white)
                                             .font(.headline)
                                             .fontWeight(.bold)
@@ -62,10 +66,10 @@ struct MainPageView: View {
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 20) {
-                            ForEach(done, id: \.self) { city in
+                            ForEach(Done) { city in
                                 ZStack (alignment: .bottomLeading) {
                                     
-                                    Image(city.lowercased())
+                                    Image(city.image.lowercased())
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 360, height: 150)
@@ -74,7 +78,7 @@ struct MainPageView: View {
                                         )
                                         .cornerRadius(10)
                                         .overlay(
-                                            Text(city)
+                                            Text(city.name)
                                                 .foregroundColor(.white)
                                                 .font(.headline)
                                                 .fontWeight(.bold)
@@ -113,7 +117,7 @@ struct MainPageView: View {
         }
         
         .fullScreenCover(isPresented: $isModalPresented) {
-            //qualcosa
+            StartOrganizingView()
         }
     }
 }
