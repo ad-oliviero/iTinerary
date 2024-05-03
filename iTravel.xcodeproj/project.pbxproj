@@ -14,7 +14,6 @@
 		0D34152F2BE2552E00B1075A /* ArchitectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34152E2BE2552E00B1075A /* ArchitectureView.swift */; };
 		0D5C28382BE26A230069B92B /* SomethingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5C28372BE26A230069B92B /* SomethingView.swift */; };
 		0D5C283A2BE26BD50069B92B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5C28392BE26BD50069B92B /* Data.swift */; };
-		0D5C283C2BE26F630069B92B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5C283B2BE26F630069B92B /* ContentView.swift */; };
 		0D5C283E2BE271A10069B92B /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5C283D2BE271A10069B92B /* Places.swift */; };
 		0D6C2D302BE1029700CE0476 /* StartOrganizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */; };
 		0DB910CD2BE3A29E008B4341 /* ItineraryView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */; };
@@ -51,7 +50,6 @@
 		0D34152E2BE2552E00B1075A /* ArchitectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureView.swift; sourceTree = "<group>"; };
 		0D5C28372BE26A230069B92B /* SomethingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomethingView.swift; sourceTree = "<group>"; };
 		0D5C28392BE26BD50069B92B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		0D5C283B2BE26F630069B92B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../ContentView.swift; sourceTree = "<group>"; };
 		0D5C283D2BE271A10069B92B /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOrganizingView.swift; sourceTree = "<group>"; };
 		0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView1.swift; sourceTree = "<group>"; };
@@ -116,10 +114,8 @@
 				0D5C28392BE26BD50069B92B /* Data.swift */,
 				AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */,
 				AE2E1C9D2BE3D50D005A7F02 /* City.swift */,
-				0D4E51DE2BE41A7E00C7C706 /* ItineraryView2.swift */,
 				0D5C283D2BE271A10069B92B /* Places.swift */,
 				0D5C28372BE26A230069B92B /* SomethingView.swift */,
-				0D5C283B2BE26F630069B92B /* ContentView.swift */,
 				0D34152E2BE2552E00B1075A /* ArchitectureView.swift */,
 				0D34152C2BE2550A00B1075A /* SportView.swift */,
 				0D00B9022BE1EB5F004C3052 /* ArtView.swift */,
@@ -268,7 +264,6 @@
 				72D51CB62BE4392900327EA9 /* ConditionEnum.swift in Sources */,
 				0D00B9032BE1EB5F004C3052 /* ArtView.swift in Sources */,
 				7250B56B2BDFB13D00DED6D8 /* iTravelApp.swift in Sources */,
-				0D5C283C2BE26F630069B92B /* ContentView.swift in Sources */,
 				0D34152F2BE2552E00B1075A /* ArchitectureView.swift in Sources */,
 				72D51CB12BE3A24300327EA9 /* AutoCompleteAPI.swift in Sources */,
 				0D5C283E2BE271A10069B92B /* Places.swift in Sources */,
