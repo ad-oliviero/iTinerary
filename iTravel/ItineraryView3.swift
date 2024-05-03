@@ -30,6 +30,10 @@ struct ItineraryView3: View {
                     )
                 
                 HStack{
+                    NavigationLink(destination: ItineraryView2()) {
+                        Image(systemName: "chevron.left")
+            
+                    }.padding(.leading, -25)
                     Image("Rectangle 5")
                         .aspectRatio(contentMode: .fit)
                
@@ -39,26 +43,32 @@ struct ItineraryView3: View {
                     VStack
                     {
                         HStack{
-                                Text("Airport")
+                                Text("Arriving at")
                                 .font(.headline)
-                                .fontWeight(.medium)
-                                Text("Roma Fiumicino")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray).padding(.leading, 30)
                             
                             Spacer()
                             
                         }
                     }//MARK: END VSTACK
+                       
+                    VStack{
+                        HStack{
+                            Text("Duration")
+                                .font(.headline)
+                                .fontWeight(.medium) // You can adjust font size and style as needed
+                            Text("1h 30min")
+                                .font(.subheadline) // You can adjust font size and style as needed
+                                .foregroundColor(.gray).padding(.leading, 40) // You can adjust color as needed
+                            
+                            Spacer() // Add spacer to push the trailing text to the right edge
+                            
+                        }
+                    }
+                    //MARK: END VSTACK
                     HStack{
                         
-                            Text("Arriving at")
+                            Text("Street")
                             .font(.headline)
-                            .fontWeight(.medium)
-                            Text("12 PM")
-                                .font(.subheadline)
-                                .foregroundColor(.gray).padding(.leading, 30)
-
                         Spacer()
                         
                     }
