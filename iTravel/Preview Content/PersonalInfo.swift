@@ -15,7 +15,7 @@ struct PersonalInfo: View {
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             VStack {
                 Circle()
                     .fill(Color.gray)
@@ -62,12 +62,16 @@ struct PersonalInfo: View {
                         } else {
                             // Mostriamo i dati solo se non ci sono errori e non c'è caricamento dei dati in corso
                             HStack{
+                                Text("City")
                                 TextField("City", text: $combinedText)
-                                    .onChange(of: combinedText) { newValue in
-                                        if newValue.count > 2 {
-                                            fetchCityData(city: newValue)
-                                        }
+                                Button(action: {
+                                    if combinedText.count > 2 {
+                                        fetchCityData(city: combinedText)
                                     }
+                                }) {
+                                    Image(systemName: "magnifyingglass")
+                                }
+                                .disabled(combinedText.count <= 2)
                             }
                         }
                     }
