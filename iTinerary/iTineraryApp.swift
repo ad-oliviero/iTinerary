@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-
 @main
 struct iTineraryApp: App {
-    var body: some Scene {
-        WindowGroup {
-            PersonalInfo()
-        }
+  var body: some Scene {
+    WindowGroup {
+      PersonalInfo()
     }
+  }
 }
 
 struct ContentView: View {
-    var body: some View {
-        PersonalInfo()
-    }
+  var body: some View {
+    PersonalInfo()
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }
