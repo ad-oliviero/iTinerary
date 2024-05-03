@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct TestAPIView: View {
-    let utils = CommonAPIUtils()
     var body: some View {
         NavigationStack {
             VStack {
                 Button {
                     Task {
                         do {
-                            let response = try await utils.responseToDict("https://api.geoapify.com/v2/place-details?id=51068d4fb7a2fb2840594e25034015f24440f00103f901d535815700000000c00201920308436f6c6f7373656f&apiKey=2fd2e15f4fb94d7f90bd4f809e76c302")
-                            print(response)
+                            //let request = IsoLinesRequest(lat: "40.8358846", lon: "14.2487679", isoType: .isochrone, mode: .car, range: 300)
+//                            let request = AutoCompleteAPIRequest(text: "Napoli, Naples, Napoli, Italy")
+//                            let request = PlacesAPIRequest(placeId: "51a8c64b3789792c40597fdfbf79716e4440c00206e2031e77686f736f6e66697273743a6c6f63616c6974793a313031373532353535", categories: [.commercial, .activity])
+                            let request = PlacesDetailsAPI(placeId: "51a8c64b3789792c40597fdfbf79716e4440c00206e2031e77686f736f6e66697273743a6c6f63616c6974793a313031373532353535")
+                            try await request.sendRequest()
+                            print(try await request.responseToString())
+//                            print(try await request.responseToJson())
                         } catch {
                             print(error.localizedDescription)
                         }
