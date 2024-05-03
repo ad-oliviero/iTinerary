@@ -159,7 +159,7 @@ struct ItineraryView1: View {
                 Spacer()
               }
 
-            }  // MARK: End Vstack
+            }
             HStack {
               Text(Title2)
                 .font(.headline)
