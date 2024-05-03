@@ -109,10 +109,10 @@ struct PersonalInfo: View {
             do {
                 let request = AutoCompleteAPIRequest(text: city)
                 try await request.sendRequest()
-                if let firstFeature = try? await request.responseToJson().features.first {
-                    self.city = firstFeature.properties.city
-                    self.state = firstFeature.properties.state
-                    self.country = firstFeature.properties.country
+                if let firstFeature = try? await request.responseToJson().features?.first {
+                    self.city = firstFeature.properties?.city ?? ""
+                    self.state = firstFeature.properties?.state ?? ""
+                    self.country = firstFeature.properties?.country ?? ""
                     self.combinedText = "\(self.city), \(self.state), \(self.country)"
                 }
                 isFetchingData = false
