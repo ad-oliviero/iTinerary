@@ -7,6 +7,11 @@
 
 import Foundation
 
+//struct PlaceDetailsData: Codable {
+//    let type: String
+//    let features: [Feature]
+//}
+
 class PlacesDetailsAPI: GeoRequest {
     /// Id of the city
     var placeId: String? = nil
@@ -29,9 +34,9 @@ class PlacesDetailsAPI: GeoRequest {
         apiType = "place-details?"
         parameters = "lat=\(self.lat!)&lon=\(self.lon!)"
     }
-//    public func responseToJson() async throws -> AutocompleteData {
+//    public func responseToJson() async throws -> AutoCompleteData {
 //        do {
-//            return try JSONDecoder().decode(AutocompleteData.self, from: response!)
+//            return try JSONDecoder().decode(AutoCompleteData.self, from: response!)
 //        } catch {
 //            throw APIError.responseUninitialized
 //        }
