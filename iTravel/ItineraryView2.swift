@@ -30,6 +30,10 @@ struct ItineraryView2: View {
                     )
                 
                 HStack{
+                    NavigationLink(destination: ItineraryView1()) {
+                        Image(systemName: "chevron.left")
+            
+                    }.padding(.leading, -20)
                     Image("Rectangle 4")
                         .aspectRatio(contentMode: .fit)
                     
@@ -45,10 +49,10 @@ struct ItineraryView2: View {
                     VStack
                     {
                         HStack{
-                                Text("Airport")
+                                Text("Arriving at")
                                 .font(.headline)
                                 .fontWeight(.medium) // You can adjust font size and style as needed
-                                Text("Roma Fiumicino")
+                                Text("2 PM")
                                     .font(.subheadline) // You can adjust font size and style as needed
                                     .foregroundColor(.gray).padding(.leading, 30) // You can adjust color as needed
                             
@@ -58,10 +62,10 @@ struct ItineraryView2: View {
                     }//MARK: END VSTACK
                     HStack{
                         
-                            Text("Arriving at")
+                            Text("Duration")
                             .font(.headline)
                             .fontWeight(.medium) // You can adjust font size and style as needed
-                            Text("12 PM")
+                            Text("1h 30min")
                                 .font(.subheadline) // You can adjust font size and style as needed
                                 .foregroundColor(.gray).padding(.leading, 30) // You can adjust color as needed
 
