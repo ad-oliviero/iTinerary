@@ -23,4 +23,11 @@ class GeoRequest {
     }
     
     public func responseToString() async throws -> String { String(decoding: response ?? Data(), as: UTF8.self) }
+    public func responseToJson() async throws -> GeoAPIfyData{
+        do {
+            return try JSONDecoder().decode(GeoAPIfyData.self, from: response!)
+        } catch {
+            throw APIError.responseUninitialized
+        }
+    }
 }
