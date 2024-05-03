@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum Condition: String {
+enum Condition: String, CaseIterable {
     case access = "access"
     case dogs = "dogs"
-    case no_dogs = "no-dogs"
+    case no_dogs = "no_dogs"
     case dogs_yes = "dogs.yes"
     case gluten_free = "gluten_free"
     case vegan = "vegan"

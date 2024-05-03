@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-enum Category: String {
+enum Category: String, CaseIterable {
     case activity = "activity"
     case activity_sport_club = "activity.sport_club"
     case adult = "adult"
