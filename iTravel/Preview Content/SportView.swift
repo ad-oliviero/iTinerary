@@ -1,10 +1,3 @@
-//
-//  SportView.swift
-//  iTravel
-//
-//  Created by Franklyn Chiemeka Ekoh on 01/05/24.
-//
-
 import SwiftUI
 
 struct MyButtonStyle: ButtonStyle {
@@ -17,14 +10,21 @@ struct MyButtonStyle: ButtonStyle {
             .cornerRadius(8)
     }
 }
+
 struct SportView: View {
     @State var prize: String = "Prize"
     @State var event:String  = "Location to visit"
     @State var typeOfSport: String  = "Football"
     var myData = sharedData
+    @State private var selectedSportIndices: [Int] = []
+    @State private var selectedSports: [Sport] = []
+    @State private var isNavigationActive = false
+    
     var body: some View {
         NavigationStack{
-            Text("Pick the places you’d like to visit:").padding(.leading, -120 ).padding(.top)
+            Text("Pick the places you’d like to visit:")
+                .padding(.leading, -120 )
+                .padding(.top)
             List{
                 ForEach(Array(myData.sports.enumerated()), id: \.element.id){
                     index, sport in
@@ -32,59 +32,67 @@ struct SportView: View {
                     Section{
                         HStack{
                             Button(action:{
-                                print("Clicked", index)
-                                sharedData.sports[index].isClicked.toggle()
-                                            
-                        
-                            }){
-                                
-                                //INSERTING: The name
-                                Image(systemName: sport.isClicked ? "circle.fill": "circle")
-                                
+                                toggleSelection(for: index, sport: sport)
+                            }) {
+                                Image(systemName: isSportSelected(index: index) ? "checkmark.circle.fill" : "circle")
                             }
-                            Image(sport.image)
+                            .buttonStyle(PlainButtonStyle())
+                            Spacer()
+                            
+                            NavigationLink(destination: ArchitectureView(), isActive: $isNavigationActive) {
+                                EmptyView()
+                            }
+                            .opacity(0)
+                            .buttonStyle(PlainButtonStyle())
                             
                             
-                            VStack(alignment: .leading) {
-                                Text(sport.name)
-                                    .font(.headline) // You can adjust font size and style as needed
-                                Text(sport.time)
-                                    .font(.subheadline) // You can adjust font size and style as needed
-                                    .foregroundColor(.gray) // You can adjust color as needed
-                            } //MARK: END VSTACK
-                            Spacer() // Add spacer to push the trailing text to the right edge
-                            Text(sport.prize)
-                                .font(.caption) // You can adjust font size and style as needed
-                                .foregroundColor(.blue) // You can adjust color as needed
                             
-                        }
-                    }//MARK: END  SECTION 1
-                }//MARK: END ForEach
-                
-            }//MARK: END List
-            
-            
-                .navigationTitle("Sport")
-                .navigationBarItems(
-                    /*leading: NavigationLink(destination: StartOrganizingView()){
-                        HStack {
-                            Image(systemName: "chevron.left")
-                            Text("Back")
-                        }
-                    }*/
-                    trailing: NavigationLink(destination: ArchitectureView()) {
-                        HStack {
-                            Text("Next")
-                            Image(systemName: "chevron.right")
+                            NavigationLink(destination: ArchitectureView()) {
+                                Image(sport.image)
+                                VStack(alignment: .leading) {
+                                    Text(sport.name)
+                                        .font(.headline)
+                                    Text(sport.time)
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+                                }
+                            }
+                            .opacity(1)
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
-)
-
-               
-        }// MARK: END NAVSTACK
+                }
+            }
+            .navigationTitle("Sport")
+            .navigationBarItems(
+                trailing: NavigationLink(destination: ArchitectureView()) {
+                    HStack {
+                        Text("Next")
+                        Image(systemName: "chevron.right")
+                    }
+                }
+            )
+        }
+    }
+    
+    private func isSportSelected(index: Int) -> Bool {
+        selectedSportIndices.contains(index)
+    }
+    
+    private func toggleSelection(for index: Int, sport: Sport) {
+        if let selectedIndex = selectedSportIndices.firstIndex(of: index) {
+            selectedSportIndices.remove(at: selectedIndex)
+            selectedSports.removeAll { $0.id == sport.id }
+        } else {
+            selectedSportIndices.append(index)
+            selectedSports.append(sport)
+        }
     }
 }
 
-#Preview {
-    SportView()
+struct SportView_Previews: PreviewProvider {
+    static var previews: some View {
+        SportView()
+    }
 }
+
