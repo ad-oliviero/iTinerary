@@ -36,6 +36,9 @@
 		AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */; };
 		AE2E1CA22BE3D55E005A7F02 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */; };
 		AE2E1CA42BE3D640005A7F02 /* RecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CA32BE3D640005A7F02 /* RecapView.swift */; };
+		AE2E1CAA2BE6338E005A7F02 /* Choices.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CA92BE6338E005A7F02 /* Choices.swift */; };
+		AE2E1CAC2BE64900005A7F02 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CAB2BE64900005A7F02 /* Activity.swift */; };
+		AE2E1CAE2BE64C4D005A7F02 /* CalculatedItinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CAD2BE64C4D005A7F02 /* CalculatedItinerary.swift */; };
 		AE91153F2BE3792200067675 /* ProfileStepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153B2BE3792200067675 /* ProfileStepsView.swift */; };
 		AE9115402BE3792200067675 /* PickInterestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153C2BE3792200067675 /* PickInterestsView.swift */; };
 		AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */; };
@@ -72,6 +75,9 @@
 		AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedCity.swift; sourceTree = "<group>"; };
 		AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 		AE2E1CA32BE3D640005A7F02 /* RecapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapView.swift; sourceTree = "<group>"; };
+		AE2E1CA92BE6338E005A7F02 /* Choices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choices.swift; sourceTree = "<group>"; };
+		AE2E1CAB2BE64900005A7F02 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		AE2E1CAD2BE64C4D005A7F02 /* CalculatedItinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedItinerary.swift; sourceTree = "<group>"; };
 		AE91153B2BE3792200067675 /* ProfileStepsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStepsView.swift; sourceTree = "<group>"; };
 		AE91153C2BE3792200067675 /* PickInterestsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickInterestsView.swift; sourceTree = "<group>"; };
 		AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalePreferencesView.swift; sourceTree = "<group>"; };
@@ -135,7 +141,6 @@
 				0D34152A2BE226A100B1075A /* VaticanView.swift */,
 				AE2E1CA32BE3D640005A7F02 /* RecapView.swift */,
 				0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */,
-				AE2E1CA82BE545D0005A7F02 /* recap */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -172,15 +177,11 @@
 				0D5C28392BE26BD50069B92B /* Data.swift */,
 				AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */,
 				AE2E1C9D2BE3D50D005A7F02 /* City.swift */,
+				AE2E1CA92BE6338E005A7F02 /* Choices.swift */,
+				AE2E1CAB2BE64900005A7F02 /* Activity.swift */,
+				AE2E1CAD2BE64C4D005A7F02 /* CalculatedItinerary.swift */,
 			);
 			name = struct;
-			sourceTree = "<group>";
-		};
-		AE2E1CA82BE545D0005A7F02 /* recap */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = recap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +263,7 @@
 				72D51CB42BE436CA00327EA9 /* CategoryEnum.swift in Sources */,
 				72D51CA52BE36FFF00327EA9 /* GeoAPIfy.swift in Sources */,
 				16A32FD72BE37D0400926008 /* PersonalInfo.swift in Sources */,
+				AE2E1CAA2BE6338E005A7F02 /* Choices.swift in Sources */,
 				AE91153F2BE3792200067675 /* ProfileStepsView.swift in Sources */,
 				72D51CA32BE12A8A00327EA9 /* TestAPIView.swift in Sources */,
 				AE9115402BE3792200067675 /* PickInterestsView.swift in Sources */,
@@ -274,6 +276,7 @@
 				72D51CAF2BE3A21A00327EA9 /* IsolinesAPI.swift in Sources */,
 				0D34152D2BE2550A00B1075A /* SportView.swift in Sources */,
 				72D51CB62BE4392900327EA9 /* ConditionEnum.swift in Sources */,
+				AE2E1CAC2BE64900005A7F02 /* Activity.swift in Sources */,
 				0D00B9032BE1EB5F004C3052 /* ArtView.swift in Sources */,
 				7250B56B2BDFB13D00DED6D8 /* iTravelApp.swift in Sources */,
 				0D5C283C2BE26F630069B92B /* ContentView.swift in Sources */,
@@ -282,6 +285,7 @@
 				0D5C283E2BE271A10069B92B /* Places.swift in Sources */,
 				AE2E1C9E2BE3D50D005A7F02 /* City.swift in Sources */,
 				0D5C283A2BE26BD50069B92B /* Data.swift in Sources */,
+				AE2E1CAE2BE64C4D005A7F02 /* CalculatedItinerary.swift in Sources */,
 				AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

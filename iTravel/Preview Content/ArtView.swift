@@ -24,6 +24,7 @@ struct ArtView: View {
                                 Image(systemName: isArtSelected(index: index) ? "checkmark.circle.fill" : "circle")
                             }
                             .buttonStyle(PlainButtonStyle())
+                            
                             Spacer()
                             
                             NavigationLink(destination: VaticanView()) {

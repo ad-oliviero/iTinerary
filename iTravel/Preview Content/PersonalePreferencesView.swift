@@ -1,12 +1,10 @@
 import SwiftUI
 
 struct PersonalPreferencesView: View {
-    @State private var selectedIndices: [Int?] = Array(repeating: nil, count: 8)
-
-    let choices: [[String]] = [["Adventure", "Relax"], ["Public transport", "Private transport"], ["Cultural trip", "Entertainment"], ["Local cuisine", "International cuisine"], ["City exploration", "Nature immersion"], ["Wheelchair", "No Wheelchair"], ["No vegan", "Vegan"], ["Gluten Free", "With Gluten"]]
+    @State private var userPreferences = preferences
     
     var allChoicesMade: Bool {
-        !selectedIndices.contains(nil)
+        !userPreferences.choices.contains(where: { $0.selectedIndex == nil })
     }
     
     var body: some View {
@@ -14,33 +12,25 @@ struct PersonalPreferencesView: View {
             VStack(spacing: 20) {
                 Text("Pick one per category")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    
-
-                ForEach(choices.indices, id: \.self) { index in
+                
+                ForEach(userPreferences.choices.indices, id: \.self) { index in
                     HStack {
-                        Button(action: {
-                            toggleSelection(for: index, optionIndex: 0)
-                        }) {
-                            Text(choices[index][0])
-                                .foregroundColor(selectedIndices[index] == 0 ? .white : .blue)
-                                .padding()
-                                .background(selectedIndices[index] == 0 ? Color.blue : Color.blue.opacity(0.2))
-                                .cornerRadius(10)
+                        ForEach(userPreferences.choices[index].options.indices, id: \.self) { optionIndex in
+                            Button(action: {
+                                toggleSelection(for: index, optionIndex: optionIndex)
+                            }) {
+                                Text(userPreferences.choices[index].options[optionIndex])
+                                    .foregroundColor(userPreferences.choices[index].selectedIndex == optionIndex ? .white : .blue)
+                                    .padding()
+                                    .background(userPreferences.choices[index].selectedIndex == optionIndex ? Color.blue : Color.blue.opacity(0.2))
+                                    .cornerRadius(10)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            
+                            if optionIndex == 0 {
+                                Text("or")
+                            }
                         }
-                        .buttonStyle(PlainButtonStyle())
-
-                        Text("or")
-
-                        Button(action: {
-                            toggleSelection(for: index, optionIndex: 1)
-                        }) {
-                            Text(choices[index][1])
-                                .foregroundColor(selectedIndices[index] == 1 ? .white : .blue)
-                                .padding()
-                                .background(selectedIndices[index] == 1 ? Color.blue : Color.blue.opacity(0.2))
-                                .cornerRadius(10)
-                        }
-                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 
@@ -60,7 +50,6 @@ struct PersonalPreferencesView: View {
                             }
                         }
                     } else {
-                        
                         HStack {
                             Text("Next").foregroundColor(.gray)
                             Image(systemName: "chevron.right")
@@ -74,10 +63,10 @@ struct PersonalPreferencesView: View {
     }
     
     func toggleSelection(for index: Int, optionIndex: Int) {
-        if selectedIndices[index] == optionIndex {
-            selectedIndices[index] = nil
+        if userPreferences.choices[index].selectedIndex == optionIndex {
+            userPreferences.choices[index].selectedIndex = nil
         } else {
-            selectedIndices[index] = optionIndex
+            userPreferences.choices[index].selectedIndex = optionIndex
         }
     }
 }

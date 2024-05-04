@@ -37,17 +37,10 @@ struct SportView: View {
                                 Image(systemName: isSportSelected(index: index) ? "checkmark.circle.fill" : "circle")
                             }
                             .buttonStyle(PlainButtonStyle())
+                            
                             Spacer()
                             
-                            NavigationLink(destination: ArchitectureView(), isActive: $isNavigationActive) {
-                                EmptyView()
-                            }
-                            .opacity(0)
-                            .buttonStyle(PlainButtonStyle())
-                            
-                            
-                            
-                            NavigationLink(destination: ArchitectureView()) {
+                            NavigationLink(destination: VaticanView()) {
                                 Image(sport.image)
                                 VStack(alignment: .leading) {
                                     Text(sport.name)
