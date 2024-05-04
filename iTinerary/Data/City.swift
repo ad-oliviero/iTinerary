@@ -14,6 +14,5 @@ struct City: Identifiable {
   var image: String
   var date: Date = Date()
   var budget: Int = 0
-  var durata: Int = 0
   var isDone: Bool = false
 }

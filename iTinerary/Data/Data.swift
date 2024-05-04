@@ -54,7 +54,18 @@ class SharedData {
       isClicked: false),
 
   ]
+  var recaps = [
+    Recap(
+      Airport: "Airport", transportation: "Roma Fiumicino", Lunch: "Lunch", meal: "Fortunata",
+      Visit: "Colosseum", Architecture: "Architecture", time: "time"),
+    Recap(
+      Airport: "Airport", transportation: "Roma Fiumicino", Lunch: "Lunch", meal: "Fortunata",
+      Visit: "Colosseum", Architecture: "Architecture", time: "time"),
+    Recap(
+      Airport: "Airport", transportation: "Roma Fiumicino", Lunch: "Lunch", meal: "Fortunata",
+      Visit: "Colosseum", Architecture: "Architecture", time: "time"),
 
+  ]
 }
 
 var sharedData = SharedData()

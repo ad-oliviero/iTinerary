@@ -55,6 +55,7 @@ struct PersonalPreferencesView: View {
               }
             }
           } else {
+
             HStack {
               Text("Next").foregroundColor(.gray)
               Image(systemName: "chevron.right")
