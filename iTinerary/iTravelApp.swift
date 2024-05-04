@@ -9,13 +9,13 @@ import SwiftUI
 
 @main
 struct iTravelApp: App {
-    var body: some Scene {
-        WindowGroup {
-            PersonalInfo()
-        }
+  var body: some Scene {
+    WindowGroup {
+      PersonalInfo()
     }
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }

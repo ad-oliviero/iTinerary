@@ -7,41 +7,42 @@
 
 import Foundation
 import SwiftUI
-struct Monument: Identifiable{
-    var id = UUID()
-    var name: String
-    var time: String
-    var prize: String
-    var image: String
-    var isClicked: Bool
+
+struct Monument: Identifiable {
+  var id = UUID()
+  var name: String
+  var time: String
+  var prize: String
+  var image: String
+  var isClicked: Bool
 
 }
-struct Art: Identifiable{
-    var id = UUID()
-    var name: String
-    var time: String
-    var prize: String
-    var image: String
-    var isClicked: Bool
+struct Art: Identifiable {
+  var id = UUID()
+  var name: String
+  var time: String
+  var prize: String
+  var image: String
+  var isClicked: Bool
 
 }
 
-struct Sport: Identifiable{
-    var id = UUID()
-    var name: String
-    var time: String
-    var prize: String
-    var image: String
-    var isClicked: Bool
+struct Sport: Identifiable {
+  var id = UUID()
+  var name: String
+  var time: String
+  var prize: String
+  var image: String
+  var isClicked: Bool
 }
 
-struct Recap: Identifiable{
-    var id  = UUID()
-    var Airport: String
-    var transportation: String
-    var Lunch: String
-    var meal: String
-    var Visit: String
-    var Architecture: String
-    var time: String
+struct Recap: Identifiable {
+  var id = UUID()
+  var Airport: String
+  var transportation: String
+  var Lunch: String
+  var meal: String
+  var Visit: String
+  var Architecture: String
+  var time: String
 }

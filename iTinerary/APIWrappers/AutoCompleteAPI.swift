@@ -14,11 +14,11 @@ import Foundation
 //}
 
 class AutoCompleteAPIRequest: GeoRequest {
-    var text: String
-    init(text: String!) {
-        self.text = text
-        super.init()
-        super.apiType = "geocode/autocomplete?"
-        parameters = "text=\(self.text)&type=city"
-    }
+  var text: String
+  init(text: String!) {
+    self.text = text
+    super.init()
+    super.apiType = "geocode/autocomplete?"
+    parameters = "text=\(self.text)&type=city"
+  }
 }

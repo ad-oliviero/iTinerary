@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct Activity: Hashable{
-    var place: String
-    var starttime: String
-    var endtime: String
-    var address: String
+struct Activity: Hashable {
+  var place: String
+  var starttime: String
+  var endtime: String
+  var address: String
 }
