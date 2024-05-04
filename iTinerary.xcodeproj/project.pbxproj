@@ -108,10 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				72DC592C2BE675C300D02C1B /* iTineraryApp.swift */,
+				72D51C9F2BE1213F00327EA9 /* APIWrappers */,
 				72B572522BE568C70021A002 /* PersonalInfoViews */,
 				72B572542BE569760021A002 /* ItineraryViews */,
 				72B572502BE567CE0021A002 /* Data */,
-				72D51C9F2BE1213F00327EA9 /* APIWrappers */,
 				7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */,
 				7250B5702BDFB13F00DED6D8 /* Preview Content */,
 			);
