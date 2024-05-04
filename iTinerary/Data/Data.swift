@@ -66,7 +66,6 @@ class SharedData {
       Visit: "Colosseum", Architecture: "Architecture", time: "time"),
 
   ]
-
 }
 
 var sharedData = SharedData()

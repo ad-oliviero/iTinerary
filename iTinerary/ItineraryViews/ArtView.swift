@@ -1,10 +1,3 @@
-//
-//  ArtView.swift
-//  iTravel
-//
-//  Created by Franklyn Chiemeka Ekoh on 01/05/24.
-//
-
 import SwiftUI
 
 struct ArtView: View {
@@ -12,49 +5,45 @@ struct ArtView: View {
   @State var place: String = "Location to visit"
   @State var time: String = "time"
   var myData = sharedData
+  @State private var selectedArtIndices: [Int] = []
+  @State private var selectedArts: [Art] = []
+
   var body: some View {
     NavigationStack {
-      Text("Pick the places you’d like to visit:").padding(.leading, -120).padding(.top)
+      Text("Pick the places you’d like to visit:")
+        .padding(.leading, -120)
+        .padding(.top)
       List {
-        ForEach(Array(myData.arts.enumerated()), id: \.element.id) {
-          index, art in
-
+        ForEach(Array(myData.arts.enumerated()), id: \.element.id) { index, art in
           Section {
             HStack {
+
               Button(action: {
-                sharedData.arts[index].isClicked.toggle()
-
+                toggleSelection(for: index, art: art)
               }) {
-                //INSERTING: The name
-                Image(systemName: art.isClicked ? "circle.fill" : "circle")
+                Image(systemName: isArtSelected(index: index) ? "checkmark.circle.fill" : "circle")
               }
-              Image(art.image)
-              //NavigationLink(destination: VaticanView()) {}
-              VStack(alignment: .leading) {
-                Text(art.name)
-                  .font(.headline)  // You can adjust font size and style as needed
-                Text(art.time)
-                  .font(.subheadline)  // You can adjust font size and style as needed
-                  .foregroundColor(.gray)  // You can adjust color as needed
-              }  //MARK: END VSTACK
-              Spacer()  // Add spacer to push the trailing text to the right edge
-              Text(art.prize)
-                .font(.caption)  // You can adjust font size and style as needed
-                .foregroundColor(.blue)  // You can adjust color as needed
+              .buttonStyle(PlainButtonStyle())
+
+              Spacer()
+
+              NavigationLink(destination: VaticanView()) {
+                Image(art.image)
+                VStack(alignment: .leading) {
+                  Text(art.name)
+                    .font(.headline)
+                  Text(art.time)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                }
+              }
+
             }
-
-          }  //MARK: END  SECTION
+          }
         }
-      }  //MARK: End List
-
+      }
       .navigationTitle("Art")
       .navigationBarItems(
-        /*leading: NavigationLink(destination: StartOrganizingView()){
-                        HStack {
-                            Image(systemName: "chevron.left")
-                            Text("Back")
-                        }
-                    }*/
         trailing: NavigationLink(destination: SportView()) {
           HStack {
             Text("Next")
@@ -62,11 +51,26 @@ struct ArtView: View {
           }
         }
       )
+    }
+  }
 
-    }  // MARK: END NAVSTACK
+  private func isArtSelected(index: Int) -> Bool {
+    selectedArtIndices.contains(index)
+  }
+
+  private func toggleSelection(for index: Int, art: Art) {
+    if let selectedIndex = selectedArtIndices.firstIndex(of: index) {
+      selectedArtIndices.remove(at: selectedIndex)
+      selectedArts.removeAll { $0.id == art.id }
+    } else {
+      selectedArtIndices.append(index)
+      selectedArts.append(art)
+    }
   }
 }
 
-#Preview {
-  ArtView()
+struct ArtView_Previews: PreviewProvider {
+  static var previews: some View {
+    ArtView()
+  }
 }

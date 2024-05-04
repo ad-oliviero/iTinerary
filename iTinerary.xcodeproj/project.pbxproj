@@ -19,7 +19,6 @@
 		7250B56F2BDFB13F00DED6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */; };
 		7250B5722BDFB13F00DED6D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B5712BDFB13F00DED6D8 /* Preview Assets.xcassets */; };
 		72B5724F2BE4DD560021A002 /* CommonStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5724E2BE4DD560021A002 /* CommonStructs.swift */; };
-		72B572562BE56A160021A002 /* iTineraryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B572552BE56A160021A002 /* iTineraryApp.swift */; };
 		72D51CA12BE1216000327EA9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA02BE1216000327EA9 /* Common.swift */; };
 		72D51CA32BE12A8A00327EA9 /* TestAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */; };
 		72D51CA52BE36FFF00327EA9 /* GeoAPIfy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */; };
@@ -29,6 +28,10 @@
 		72D51CB42BE436CA00327EA9 /* CategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CB32BE436CA00327EA9 /* CategoryEnum.swift */; };
 		72D51CB62BE4392900327EA9 /* ConditionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CB52BE4392900327EA9 /* ConditionEnum.swift */; };
 		72D51CBA2BE4414B00327EA9 /* PlacesDetailsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CB92BE4414B00327EA9 /* PlacesDetailsAPI.swift */; };
+		72DC591F2BE6757400D02C1B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC591E2BE6757400D02C1B /* Activity.swift */; };
+		72DC59232BE675A300D02C1B /* CalculatedItinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC59222BE675A300D02C1B /* CalculatedItinerary.swift */; };
+		72DC59252BE675AA00D02C1B /* Choices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC59242BE675AA00D02C1B /* Choices.swift */; };
+		72DC59302BE675C300D02C1B /* iTineraryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC592C2BE675C300D02C1B /* iTineraryApp.swift */; };
 		AE2E1C9E2BE3D50D005A7F02 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1C9D2BE3D50D005A7F02 /* City.swift */; };
 		AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */; };
 		AE2E1CA22BE3D55E005A7F02 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */; };
@@ -52,7 +55,6 @@
 		7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7250B5712BDFB13F00DED6D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		72B5724E2BE4DD560021A002 /* CommonStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStructs.swift; sourceTree = "<group>"; };
-		72B572552BE56A160021A002 /* iTineraryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTineraryApp.swift; sourceTree = "<group>"; };
 		72D51CA02BE1216000327EA9 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIView.swift; sourceTree = "<group>"; };
 		72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAPIfy.swift; sourceTree = "<group>"; };
@@ -62,6 +64,10 @@
 		72D51CB32BE436CA00327EA9 /* CategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEnum.swift; sourceTree = "<group>"; };
 		72D51CB52BE4392900327EA9 /* ConditionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionEnum.swift; sourceTree = "<group>"; };
 		72D51CB92BE4414B00327EA9 /* PlacesDetailsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesDetailsAPI.swift; sourceTree = "<group>"; };
+		72DC591E2BE6757400D02C1B /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = iTinerary/Data/Activity.swift; sourceTree = SOURCE_ROOT; };
+		72DC59222BE675A300D02C1B /* CalculatedItinerary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatedItinerary.swift; sourceTree = "<group>"; };
+		72DC59242BE675AA00D02C1B /* Choices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices.swift; sourceTree = "<group>"; };
+		72DC592C2BE675C300D02C1B /* iTineraryApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTineraryApp.swift; sourceTree = "<group>"; };
 		AE2E1C9D2BE3D50D005A7F02 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedCity.swift; sourceTree = "<group>"; };
 		AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
@@ -101,7 +107,7 @@
 		7250B5692BDFB13D00DED6D8 /* iTinerary */ = {
 			isa = PBXGroup;
 			children = (
-				72B572552BE56A160021A002 /* iTineraryApp.swift */,
+				72DC592C2BE675C300D02C1B /* iTineraryApp.swift */,
 				72B572522BE568C70021A002 /* PersonalInfoViews */,
 				72B572542BE569760021A002 /* ItineraryViews */,
 				72B572502BE567CE0021A002 /* Data */,
@@ -126,9 +132,12 @@
 		72B572502BE567CE0021A002 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				0D5C28392BE26BD50069B92B /* Data.swift */,
 				0D5C283D2BE271A10069B92B /* Places.swift */,
+				72DC591E2BE6757400D02C1B /* Activity.swift */,
+				72DC59222BE675A300D02C1B /* CalculatedItinerary.swift */,
 				AE2E1C9D2BE3D50D005A7F02 /* City.swift */,
+				72DC59242BE675AA00D02C1B /* Choices.swift */,
+				0D5C28392BE26BD50069B92B /* Data.swift */,
 				AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */,
 			);
 			path = Data;
@@ -257,16 +266,17 @@
 			files = (
 				72D51CA12BE1216000327EA9 /* Common.swift in Sources */,
 				72D51CBA2BE4414B00327EA9 /* PlacesDetailsAPI.swift in Sources */,
+				72DC591F2BE6757400D02C1B /* Activity.swift in Sources */,
 				AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */,
 				AE2E1CA22BE3D55E005A7F02 /* MainPageView.swift in Sources */,
 				72D51CB42BE436CA00327EA9 /* CategoryEnum.swift in Sources */,
 				72D51CA52BE36FFF00327EA9 /* GeoAPIfy.swift in Sources */,
 				16A32FD72BE37D0400926008 /* PersonalInfo.swift in Sources */,
+				72DC59302BE675C300D02C1B /* iTineraryApp.swift in Sources */,
 				AE91153F2BE3792200067675 /* ProfileStepsView.swift in Sources */,
 				72D51CA32BE12A8A00327EA9 /* TestAPIView.swift in Sources */,
 				AE9115402BE3792200067675 /* PickInterestsView.swift in Sources */,
 				72D51CAD2BE3A1D700327EA9 /* PlacesAPI.swift in Sources */,
-				72B572562BE56A160021A002 /* iTineraryApp.swift in Sources */,
 				0D6C2D302BE1029700CE0476 /* StartOrganizingView.swift in Sources */,
 				0DB910CD2BE3A29E008B4341 /* ItineraryView1.swift in Sources */,
 				0D34152B2BE226A200B1075A /* VaticanView.swift in Sources */,
@@ -277,7 +287,9 @@
 				72D51CB62BE4392900327EA9 /* ConditionEnum.swift in Sources */,
 				0D00B9032BE1EB5F004C3052 /* ArtView.swift in Sources */,
 				0D34152F2BE2552E00B1075A /* ArchitectureView.swift in Sources */,
+				72DC59252BE675AA00D02C1B /* Choices.swift in Sources */,
 				72D51CB12BE3A24300327EA9 /* AutoCompleteAPI.swift in Sources */,
+				72DC59232BE675A300D02C1B /* CalculatedItinerary.swift in Sources */,
 				0D5C283E2BE271A10069B92B /* Places.swift in Sources */,
 				AE2E1C9E2BE3D50D005A7F02 /* City.swift in Sources */,
 				0D5C283A2BE26BD50069B92B /* Data.swift in Sources */,

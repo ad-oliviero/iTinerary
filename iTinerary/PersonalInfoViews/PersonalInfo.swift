@@ -17,7 +17,7 @@ struct PersonalInfo: View {
 
   var body: some View {
 
-    NavigationView {
+    NavigationStack {
       VStack {
         if selectedImageData != nil {
           let uiImage = UIImage(data: selectedImageData!)!
@@ -140,6 +140,8 @@ struct PersonalInfo: View {
   }
 }
 
-#Preview {
-  PersonalInfo()
+struct PersonalInfo_Previews: PreviewProvider {
+  static var previews: some View {
+    PersonalInfo()
+  }
 }
