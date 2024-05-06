@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct PickInterestsView: View {
-  @ObservedObject var userCat = Categories()
-  let allCategories = [
-    "activity", "adult", "beach", "building", "camping", "catering", "commercial",
-    "education", "entertainment", "heritage", "highway", "leisure", "manMade", "natural",
-    "pet", "production", "railway", "religion", "ski", "sport", "tourism",
-  ]
+  @State var selectedCategories: [String: Bool] = Category.allCases.reduce(into: [:]) {
+    result, category in
+    result[category.rawValue.displayName] = false
+  }
 
   var body: some View {
     NavigationStack {
@@ -23,18 +21,17 @@ struct PickInterestsView: View {
           .padding()
 
         ScrollView {
-          LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 16) {
-            ForEach(allCategories, id: \.self) { category in
+          LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 32) {
+            ForEach(Array(selectedCategories.enumerated()), id: \.element.key) { index, pair in
+              let category = pair.key
+              let selected = pair.value
               Button(action: {
-                toggleSelection(for: category)
+                selectedCategories[category]?.toggle()
               }) {
                 Text(category)
                   .padding()
-                  .background(
-                    userCat.selectedCategories.contains(category)
-                      ? Color.blue : Color.blue.opacity(0.2)
-                  )
-                  .foregroundColor(userCat.selectedCategories.contains(category) ? .white : .blue)
+                  .background(selected ? Color.blue : Color.blue.opacity(0.2))
+                  .foregroundColor(selected ? .white : .blue)
                   .cornerRadius(10)
               }
               .buttonStyle(PlainButtonStyle())
@@ -42,7 +39,6 @@ struct PickInterestsView: View {
           }
           .padding()
         }
-
         Spacer()
       }
       .navigationBarTitle("Pick your interests")
@@ -55,14 +51,9 @@ struct PickInterestsView: View {
                 .font(.system(size: 15))
                 .font(.title)
             }
-          }
-          .disabled(userCat.selectedCategories.count < 3)
+          }.disabled(selectedCategories.filter { $0.1 }.count < 3)
       )
     }
-  }
-
-  func toggleSelection(for category: String) {
-    userCat.toggleCategory(category)
   }
 }
 

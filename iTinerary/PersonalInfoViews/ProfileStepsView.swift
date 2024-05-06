@@ -20,7 +20,7 @@ struct ProfileStepsView: View {
           .frame(width: 300, height: 300)
           .shadow(color: .gray, radius: 10, x: 0, y: 2)
 
-        Text("Let's make your experience unforgettable!")
+        Text("Let's make it an unforgettable experience!")
 
         ZStack {
           RoundedRectangle(cornerRadius: 10)
@@ -56,23 +56,17 @@ struct ProfileStepsView: View {
       .navigationBarTitle("Hello!")
 
       .navigationBarItems(
-
         trailing: NavigationLink(destination: PickInterestsView()) {
-
           HStack {
             Text("Next")
             Image(systemName: "chevron.right")
               .font(.system(size: 15))
               .font(.title)
-
           }
-
         }
       )
-
     }
   }
-
 }
 
 #Preview {
