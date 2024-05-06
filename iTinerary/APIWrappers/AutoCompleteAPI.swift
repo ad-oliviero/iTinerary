@@ -15,10 +15,9 @@ import Foundation
 
 class AutoCompleteAPIRequest: GeoRequest {
   var text: String
-  init(text: String!) {
+  init(text: String!) async throws {
     self.text = text
-    super.init()
-    super.apiType = "geocode/autocomplete?"
-    parameters = "text=\(self.text)&type=city"
+    try await super.init(
+      apiType: "geocode/autocomplete?", parameters: "text=\(self.text)&type=city")
   }
 }

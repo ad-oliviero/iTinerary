@@ -11,17 +11,17 @@ import SwiftUI
 struct iTineraryApp: App {
   var body: some Scene {
     WindowGroup {
-      PersonalInfo()
+      TestAPIView()
     }
   }
 }
 
-struct ContentView: View {
-  var body: some View {
-    PersonalInfo()
-  }
-}
+//struct ContentView: View {
+//  var body: some View {
+//    PickInterestsView()
+//  }
+//}
 
-#Preview {
-  ContentView()
-}
+//#Preview {
+//  PickInterestsView()
+//}

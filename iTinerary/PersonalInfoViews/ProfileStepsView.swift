@@ -12,16 +12,6 @@ struct ProfileStepsView: View {
   var body: some View {
     NavigationStack {
       VStack {
-
-        Image("profile")
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .clipShape(Circle())
-          .frame(width: 300, height: 300)
-          .shadow(color: .gray, radius: 10, x: 0, y: 2)
-
-        Text("Let's make it an unforgettable experience!")
-
         ZStack {
           RoundedRectangle(cornerRadius: 10)
             .fill(Color.cyan.opacity(0.2))

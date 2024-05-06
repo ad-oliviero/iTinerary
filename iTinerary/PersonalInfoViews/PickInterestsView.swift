@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PickInterestsView: View {
-  @State var selectedCategories: [String: Bool]
+  @State var selectedCategories: [Category: Bool]
   let selectedCategories_JSON: URL =
     (FileManager.default.urls(
       for: .documentDirectory, in: .userDomainMask
@@ -17,13 +17,13 @@ struct PickInterestsView: View {
   init() {
     do {
       let data = try Data(contentsOf: selectedCategories_JSON)
-      self.selectedCategories = try JSONDecoder().decode([String: Bool].self, from: data)
+      self.selectedCategories = try JSONDecoder().decode([Category: Bool].self, from: data)
       print(selectedCategories)
     } catch {
       print(error.localizedDescription)
       self.selectedCategories = Category.allCases.reduce(into: [:]) {
         result, category in
-        result[category.rawValue.displayName] = false
+        result[category] = false
       }
     }
   }
@@ -50,7 +50,7 @@ struct PickInterestsView: View {
                 }
 
               }) {
-                Text(category)
+                Text(category.rawValue.displayName)
                   .padding()
                   .background(selected ? Color.blue : Color.blue.opacity(0.2))
                   .foregroundColor(selected ? .white : .blue)

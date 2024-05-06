@@ -21,16 +21,13 @@ class PlacesAPIRequest: GeoRequest {
   init(
     placeId: String!, categories: [Category]!, conditions: [Condition: Int] = [:], limit: Int = 20,
     offset: Int = 0
-  ) {
+  ) async throws {
     self.placeId = placeId
     self.categories = categories
     self.conditions = conditions
     self.limit = limit
     self.offset = offset
-    super.init()
-    super.apiVersion = "v2/"
-    apiType = "places?"
-    parameters = "filter=place:\(self.placeId)"
+    var parameters = "filter=place:\(self.placeId)"
     parameters +=
       "&categories=access,\(self.categories.map {$0.rawValue.requestValue}.joined(separator: ","))"
     if conditions.count > 0 {
@@ -38,5 +35,6 @@ class PlacesAPIRequest: GeoRequest {
         "&conditions=\(self.conditions.map {$0.value == 1 ? $0.key.rawValue.value.requestValue : ($0.value == 2 ? $0.key.rawValue.notValue.requestValue : "")}.joined(separator: ","))"
     }
     parameters += "&limit=\(self.limit)&offset=\(self.offset)"
+    try await super.init(apiType: "places?", apiVersion: "v2/", parameters: parameters)
   }
 }

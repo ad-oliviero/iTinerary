@@ -7,36 +7,22 @@
 
 import Foundation
 
-class CommonAPIUtils {
-  public func httpsRequest(url: String) async throws -> Data {
+class GeoRequest {
+  internal var baseUrl = "https://api.geoapify.com/"
+  internal var data: Data?, Decodable = Data()
+  private(set) var json: [String: Any]
+  private(set) var string: String
+  private let apiKey = "95db4ee1c9da4c189181b24afc86e0db"  // TODO: Make this shit secure
+  private let lang = "en"  // TODO: Make this dynamic
+
+  init(apiType: String, apiVersion: String? = "v1/", parameters: String) async throws {
+    let url = baseUrl + apiVersion! + apiType + parameters + "&lang=\(lang)&apiKey=\(apiKey)"
     do {
-      let response = try await URLSession.shared.data(for: URLRequest(url: URL(string: url)!))
-      return response.0
+      self.data = try await URLSession.shared.data(for: URLRequest(url: URL(string: url)!)).0
+      self.json = try JSONSerialization.jsonObject(with: data!) as! [String: Any]
     } catch {
       throw error
     }
-  }
-}
-
-class GeoRequest {
-  internal var baseUrl = "https://api.geoapify.com/"
-  internal var apiVersion = "v1/"
-  internal var apiType: String = ""
-  internal var parameters: String = ""
-  internal var response: Data?, Decodable = Data()
-  private let apiKey = "2fd2e15f4fb94d7f90bd4f809e76c302"  // TODO: Make this shit secure
-  private let httpUtils = CommonAPIUtils()
-  private let lang = "en"  // TODO: Make this dynamic
-
-  public func sendRequest() async throws {
-    response = try await httpUtils.httpsRequest(
-      url: baseUrl + apiVersion + apiType + parameters + "&lang=\(lang)&apiKey=\(apiKey)")
-  }
-
-  public func responseToString() async throws -> String {
-    String(decoding: response ?? Data(), as: UTF8.self)
-  }
-  public func responseToJson() async throws -> GeoAPIfyData {
-    return try JSONDecoder().decode(GeoAPIfyData.self, from: response!)
+    self.string = String(decoding: data!, as: UTF8.self)
   }
 }
