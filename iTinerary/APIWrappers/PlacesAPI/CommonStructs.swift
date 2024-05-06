@@ -7,6 +7,22 @@
 
 import Foundation
 
+// MARK: - Query
+struct DisplayableRequest: Hashable {
+  var displayName: String
+  var requestValue: String
+
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(displayName)
+    hasher.combine(requestValue)
+  }
+
+  init(_ displayName: String, _ requestValue: String) {
+    self.displayName = displayName
+    self.requestValue = requestValue
+  }
+}
+
 // MARK: - GeoAPIfyData
 struct GeoAPIfyData: Codable {
   let features: [Feature]?

@@ -1,10 +1,9 @@
 import SwiftUI
 
 struct PersonalPreferencesView: View {
-  @State private var userPreferences = preferences
-
-  var allChoicesMade: Bool {
-    !userPreferences.choices.contains(where: { $0.selectedIndex == nil })
+  @State var selectedConditions: [ConditionStruct: Int] = Condition.allCases.reduce(into: [:]) {
+    result, category in
+    result[category.rawValue] = 0
   }
 
   var body: some View {
@@ -13,29 +12,31 @@ struct PersonalPreferencesView: View {
         Text("Pick one per category")
           .frame(maxWidth: .infinity, alignment: .leading)
 
-        ForEach(userPreferences.choices.indices, id: \.self) { index in
+        ForEach(Array(selectedConditions.enumerated()), id: \.element.key) { index, pair in
+          let condition = pair.key
+          let selected = pair.value
           HStack {
-            ForEach(userPreferences.choices[index].options.indices, id: \.self) { optionIndex in
-              Button(action: {
-                toggleSelection(for: index, optionIndex: optionIndex)
-              }) {
-                Text(userPreferences.choices[index].options[optionIndex])
-                  .foregroundColor(
-                    userPreferences.choices[index].selectedIndex == optionIndex ? .white : .blue
-                  )
-                  .padding()
-                  .background(
-                    userPreferences.choices[index].selectedIndex == optionIndex
-                      ? Color.blue : Color.blue.opacity(0.2)
-                  )
-                  .cornerRadius(10)
-              }
-              .buttonStyle(PlainButtonStyle())
-
-              if optionIndex == 0 {
-                Text("or")
-              }
+            Button(action: {
+              selectedConditions[condition] = (selected == 0 || selected == 2) ? 1 : 0
+            }) {
+              Text(condition.value.displayName)
+                .foregroundColor(selected == 1 ? .white : .blue)
+                .padding()
+                .background(selected == 1 ? Color.blue : Color.blue.opacity(0.2))
+                .cornerRadius(10)
             }
+            .buttonStyle(PlainButtonStyle())
+            Text("or")
+            Button(action: {
+              selectedConditions[condition] = (selected == 0 || selected == 1) ? 2 : 0
+            }) {
+              Text(condition.notValue.displayName)
+                .foregroundColor(selected == 2 ? .white : .blue)
+                .padding()
+                .background(selected == 2 ? Color.blue : Color.blue.opacity(0.2))
+                .cornerRadius(10)
+            }
+            .buttonStyle(PlainButtonStyle())
           }
         }
 
@@ -45,34 +46,16 @@ struct PersonalPreferencesView: View {
       .navigationBarTitle("Personal Preferences")
       .navigationBarItems(
         trailing: Group {
-          if allChoicesMade {
-            NavigationLink(destination: MainPageView()) {
-              HStack {
-                Text("Next")
-                Image(systemName: "chevron.right")
-                  .font(.system(size: 15))
-                  .font(.title)
-              }
-            }
-          } else {
-
+          NavigationLink(destination: MainPageView()) {
             HStack {
-              Text("Next").foregroundColor(.gray)
+              Text("Next")
               Image(systemName: "chevron.right")
                 .font(.system(size: 15))
-                .font(.title).foregroundColor(.gray)
+                .font(.title)
             }
-          }
+          }.disabled(!selectedConditions.values.allSatisfy { $0 != 0 })
         }
       )
-    }
-  }
-
-  func toggleSelection(for index: Int, optionIndex: Int) {
-    if userPreferences.choices[index].selectedIndex == optionIndex {
-      userPreferences.choices[index].selectedIndex = nil
-    } else {
-      userPreferences.choices[index].selectedIndex = optionIndex
     }
   }
 }

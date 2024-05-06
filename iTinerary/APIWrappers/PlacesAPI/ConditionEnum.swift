@@ -5,30 +5,37 @@
 //  Created by Adriano Oliviero on 02/05/24.
 //
 
-import Foundation
+struct ConditionStruct: Hashable {
+  var value: DisplayableRequest
+  var notValue: DisplayableRequest
+
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(value)
+    hasher.combine(notValue)
+  }
+
+  init(value: (String, String), notValue: (String, String)) {
+    self.value = DisplayableRequest(value.0, value.1)
+    self.notValue = DisplayableRequest(notValue.0, notValue.1)
+  }
+}
 
 enum Condition: CaseIterable {
-  typealias RawValue = (String, String)
   case dogs
-  case no_dogs
   case gluten_free
   case vegan
-  case wheelchair_limited
-  case wheelchair_yes
-  var rawValue: (String, String) {
+  case wheelchair
+  var rawValue: ConditionStruct {
     switch self {
     case .dogs:
-      return ("Pets", "dogs,dogs_yes")
-    case .no_dogs:
-      return ("No Pets", "no_dogs")
+      return ConditionStruct(value: ("Pets", "dogs,dogs_yes"), notValue: ("No Pets", "no_dogs"))
     case .gluten_free:
-      return ("Gluten Free", "gluten_free")
+      return ConditionStruct(value: ("Gluten Free", "gluten_free"), notValue: ("With gluten", ""))
     case .vegan:
-      return ("Vegan", "vegan,vegan.only")
-    case .wheelchair_limited:
-      return ("No Wheelchair", "wheelchair.limited")
-    case .wheelchair_yes:
-      return ("Wheelchair", "wheelchair.yes")
+      return ConditionStruct(value: ("Vegan", "vegan,vegan.only"), notValue: ("Not vegan", ""))
+    case .wheelchair:
+      return ConditionStruct(
+        value: ("Wheelchair", "wheelchair.yes"), notValue: ("No Wheelchair", ""))
     }
   }
 }
