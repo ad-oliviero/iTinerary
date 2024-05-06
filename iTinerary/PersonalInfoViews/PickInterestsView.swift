@@ -9,14 +9,22 @@ import SwiftUI
 
 struct PickInterestsView: View {
   @State var selectedCategories: [String: Bool]
+  let selectedCategories_JSON: URL =
+    (FileManager.default.urls(
+      for: .documentDirectory, in: .userDomainMask
+    ).first?.appendingPathComponent("selectedCategories.json"))!
 
   init() {
-    self.selectedCategories = Category.allCases.reduce(into: [:]) {
-      result, category in
-      result[category.rawValue.displayName] = false
-    }
-    if let data = UserDefaults.standard.dictionary(forKey: "selectedCategories") {
-      selectedCategories = data as! [String: Bool]
+    do {
+      let data = try Data(contentsOf: selectedCategories_JSON)
+      self.selectedCategories = try JSONDecoder().decode([String: Bool].self, from: data)
+      print(selectedCategories)
+    } catch {
+      print(error.localizedDescription)
+      self.selectedCategories = Category.allCases.reduce(into: [:]) {
+        result, category in
+        result[category.rawValue.displayName] = false
+      }
     }
   }
 
@@ -34,7 +42,13 @@ struct PickInterestsView: View {
               let selected = pair.value
               Button(action: {
                 selectedCategories[category]?.toggle()
-                UserDefaults.standard.set(selectedCategories, forKey: "selectedCategories")
+                do {
+                  let data = try JSONEncoder().encode(selectedCategories)
+                  try data.write(to: selectedCategories_JSON)
+                } catch {
+                  print(error.localizedDescription)
+                }
+
               }) {
                 Text(category)
                   .padding()
