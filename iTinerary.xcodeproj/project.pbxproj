@@ -7,15 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D00B9032BE1EB5F004C3052 /* ArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00B9022BE1EB5F004C3052 /* ArtView.swift */; };
 		0D34152B2BE226A200B1075A /* VaticanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34152A2BE226A100B1075A /* VaticanView.swift */; };
-		0D34152D2BE2550A00B1075A /* SportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34152C2BE2550A00B1075A /* SportView.swift */; };
-		0D34152F2BE2552E00B1075A /* ArchitectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34152E2BE2552E00B1075A /* ArchitectureView.swift */; };
-		0D5C283A2BE26BD50069B92B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5C28392BE26BD50069B92B /* Data.swift */; };
-		0D5C283E2BE271A10069B92B /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5C283D2BE271A10069B92B /* Places.swift */; };
 		0D6C2D302BE1029700CE0476 /* StartOrganizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */; };
 		0DB910CD2BE3A29E008B4341 /* ItineraryView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */; };
-		16A32FD72BE37D0400926008 /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A32FD62BE37D0400926008 /* PersonalInfo.swift */; };
 		7250B56F2BDFB13F00DED6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */; };
 		7250B5722BDFB13F00DED6D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B5712BDFB13F00DED6D8 /* Preview Assets.xcassets */; };
 		72B5724F2BE4DD560021A002 /* CommonStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5724E2BE4DD560021A002 /* CommonStructs.swift */; };
@@ -40,15 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D00B9022BE1EB5F004C3052 /* ArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtView.swift; sourceTree = "<group>"; };
 		0D34152A2BE226A100B1075A /* VaticanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaticanView.swift; sourceTree = "<group>"; };
-		0D34152C2BE2550A00B1075A /* SportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportView.swift; sourceTree = "<group>"; };
-		0D34152E2BE2552E00B1075A /* ArchitectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureView.swift; sourceTree = "<group>"; };
-		0D5C28392BE26BD50069B92B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		0D5C283D2BE271A10069B92B /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOrganizingView.swift; sourceTree = "<group>"; };
 		0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView1.swift; sourceTree = "<group>"; };
-		16A32FD62BE37D0400926008 /* PersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		7250B5672BDFB13D00DED6D8 /* iTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7250B5712BDFB13F00DED6D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -128,11 +116,9 @@
 		72B572502BE567CE0021A002 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				0D5C283D2BE271A10069B92B /* Places.swift */,
 				72DC591E2BE6757400D02C1B /* Activity.swift */,
 				72DC59222BE675A300D02C1B /* CalculatedItinerary.swift */,
 				AE2E1C9D2BE3D50D005A7F02 /* City.swift */,
-				0D5C28392BE26BD50069B92B /* Data.swift */,
 				AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */,
 			);
 			path = Data;
@@ -141,7 +127,6 @@
 		72B572522BE568C70021A002 /* PersonalInfoViews */ = {
 			isa = PBXGroup;
 			children = (
-				16A32FD62BE37D0400926008 /* PersonalInfo.swift */,
 				AE91153B2BE3792200067675 /* ProfileStepsView.swift */,
 				AE91153C2BE3792200067675 /* PickInterestsView.swift */,
 				AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */,
@@ -156,9 +141,6 @@
 				0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */,
 				AE2E1CA32BE3D640005A7F02 /* RecapView.swift */,
 				0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */,
-				0D34152E2BE2552E00B1075A /* ArchitectureView.swift */,
-				0D34152C2BE2550A00B1075A /* SportView.swift */,
-				0D00B9022BE1EB5F004C3052 /* ArtView.swift */,
 				0D34152A2BE226A100B1075A /* VaticanView.swift */,
 			);
 			path = ItineraryViews;
@@ -264,7 +246,6 @@
 				AE2E1CA22BE3D55E005A7F02 /* MainPageView.swift in Sources */,
 				72D51CB42BE436CA00327EA9 /* CategoryEnum.swift in Sources */,
 				72D51CA52BE36FFF00327EA9 /* GeoAPIfy.swift in Sources */,
-				16A32FD72BE37D0400926008 /* PersonalInfo.swift in Sources */,
 				72DC59302BE675C300D02C1B /* iTineraryApp.swift in Sources */,
 				AE91153F2BE3792200067675 /* ProfileStepsView.swift in Sources */,
 				72D51CA32BE12A8A00327EA9 /* TestAPIView.swift in Sources */,
@@ -276,15 +257,10 @@
 				AE2E1CA42BE3D640005A7F02 /* RecapView.swift in Sources */,
 				72B5724F2BE4DD560021A002 /* CommonStructs.swift in Sources */,
 				72D51CAF2BE3A21A00327EA9 /* IsolinesAPI.swift in Sources */,
-				0D34152D2BE2550A00B1075A /* SportView.swift in Sources */,
 				72D51CB62BE4392900327EA9 /* ConditionEnum.swift in Sources */,
-				0D00B9032BE1EB5F004C3052 /* ArtView.swift in Sources */,
-				0D34152F2BE2552E00B1075A /* ArchitectureView.swift in Sources */,
 				72D51CB12BE3A24300327EA9 /* AutoCompleteAPI.swift in Sources */,
 				72DC59232BE675A300D02C1B /* CalculatedItinerary.swift in Sources */,
-				0D5C283E2BE271A10069B92B /* Places.swift in Sources */,
 				AE2E1C9E2BE3D50D005A7F02 /* City.swift in Sources */,
-				0D5C283A2BE26BD50069B92B /* Data.swift in Sources */,
 				AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
