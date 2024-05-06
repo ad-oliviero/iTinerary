@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PickInterestsView: View {
-    @State var selectedCategories: [String: Bool]
+    @State var selectedCategories: [Category: Bool]
     let selectedCategories_JSON: URL =
         (FileManager.default.urls(
             for: .documentDirectory, in: .userDomainMask
@@ -10,12 +10,12 @@ struct PickInterestsView: View {
     init() {
         do {
             let data = try Data(contentsOf: selectedCategories_JSON)
-            self.selectedCategories = try JSONDecoder().decode([String: Bool].self, from: data)
+            self.selectedCategories = try JSONDecoder().decode([Category: Bool].self, from: data)
         } catch {
             print(error.localizedDescription)
             self.selectedCategories = Category.allCases.reduce(into: [:]) {
                 result, category in
-                result[category.rawValue] = false
+                result[category] = false
             }
         }
     }
@@ -29,13 +29,13 @@ struct PickInterestsView: View {
 
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 32) {
-                        ForEach(Array(selectedCategories.enumerated()), id: \.element.key) { index, pair in
-                            let category = pair.key
-                            let selected = pair.value
+                        ForEach(selectedCategories.keys.sorted { $0.rawValue < $1.rawValue }, id: \.self) { category in
+                            let selected = selectedCategories[category] ?? false
                             Button(action: {
                                 selectedCategories[category]?.toggle()
+                                saveSelectedCategories()
                             }) {
-                                Text(category)
+                                Text(category.rawValue)
                                     .padding()
                                     .background(selected ? Color.blue : Color.blue.opacity(0.2))
                                     .foregroundColor(selected ? .white : .blue)
@@ -50,35 +50,30 @@ struct PickInterestsView: View {
             }
             .navigationBarTitle("Pick your interests")
             .navigationBarItems(
-                trailing: NavigationLink(destination: SelectedViews(selectedCategories: selectedCategories)) {
+                trailing: NavigationLink(destination: CategoryDetailView(selectedCategories: selectedCategories, categoryName: selectedCategories.filter { $0.value }.keys.sorted { $0.rawValue < $1.rawValue }.first?.rawValue ?? "", index: 0)) {
                     HStack {
                         Text("Next")
                         Image(systemName: "chevron.right")
                             .font(.system(size: 15))
                             .font(.title)
                     }
-                }.disabled(selectedCategories.filter { $0.1 }.count < 3)
+                }.disabled(selectedCategories.filter { $0.value }.count < 3)
             )
         }
     }
-}
-
-struct SelectedViews: View {
-    var selectedCategories: [String: Bool]
-
-    var body: some View {
-        VStack {
-          CategoryDetailView(selectedCategories: selectedCategories, categoryName:  selectedCategories.filter { $0.value }.keys.sorted()[0], index: 0)
-
+    
+    private func saveSelectedCategories() {
+        do {
+            let data = try JSONEncoder().encode(selectedCategories)
+            try data.write(to: selectedCategories_JSON)
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
 
-
-#if DEBUG
 struct PickInterestsView_Previews: PreviewProvider {
     static var previews: some View {
         PickInterestsView()
     }
 }
-#endif
