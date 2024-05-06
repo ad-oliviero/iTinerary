@@ -19,7 +19,6 @@
 		7250B56F2BDFB13F00DED6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */; };
 		7250B5722BDFB13F00DED6D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B5712BDFB13F00DED6D8 /* Preview Assets.xcassets */; };
 		72B5724F2BE4DD560021A002 /* CommonStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5724E2BE4DD560021A002 /* CommonStructs.swift */; };
-		72D51CA12BE1216000327EA9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA02BE1216000327EA9 /* Common.swift */; };
 		72D51CA32BE12A8A00327EA9 /* TestAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */; };
 		72D51CA52BE36FFF00327EA9 /* GeoAPIfy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */; };
 		72D51CAD2BE3A1D700327EA9 /* PlacesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CAC2BE3A1D700327EA9 /* PlacesAPI.swift */; };
@@ -30,7 +29,6 @@
 		72D51CBA2BE4414B00327EA9 /* PlacesDetailsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CB92BE4414B00327EA9 /* PlacesDetailsAPI.swift */; };
 		72DC591F2BE6757400D02C1B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC591E2BE6757400D02C1B /* Activity.swift */; };
 		72DC59232BE675A300D02C1B /* CalculatedItinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC59222BE675A300D02C1B /* CalculatedItinerary.swift */; };
-		72DC59252BE675AA00D02C1B /* Choices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC59242BE675AA00D02C1B /* Choices.swift */; };
 		72DC59302BE675C300D02C1B /* iTineraryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC592C2BE675C300D02C1B /* iTineraryApp.swift */; };
 		AE2E1C9E2BE3D50D005A7F02 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1C9D2BE3D50D005A7F02 /* City.swift */; };
 		AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */; };
@@ -55,7 +53,6 @@
 		7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7250B5712BDFB13F00DED6D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		72B5724E2BE4DD560021A002 /* CommonStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStructs.swift; sourceTree = "<group>"; };
-		72D51CA02BE1216000327EA9 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIView.swift; sourceTree = "<group>"; };
 		72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAPIfy.swift; sourceTree = "<group>"; };
 		72D51CAC2BE3A1D700327EA9 /* PlacesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPI.swift; sourceTree = "<group>"; };
@@ -66,7 +63,6 @@
 		72D51CB92BE4414B00327EA9 /* PlacesDetailsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesDetailsAPI.swift; sourceTree = "<group>"; };
 		72DC591E2BE6757400D02C1B /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = iTinerary/Data/Activity.swift; sourceTree = SOURCE_ROOT; };
 		72DC59222BE675A300D02C1B /* CalculatedItinerary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatedItinerary.swift; sourceTree = "<group>"; };
-		72DC59242BE675AA00D02C1B /* Choices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices.swift; sourceTree = "<group>"; };
 		72DC592C2BE675C300D02C1B /* iTineraryApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTineraryApp.swift; sourceTree = "<group>"; };
 		AE2E1C9D2BE3D50D005A7F02 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedCity.swift; sourceTree = "<group>"; };
@@ -136,7 +132,6 @@
 				72DC591E2BE6757400D02C1B /* Activity.swift */,
 				72DC59222BE675A300D02C1B /* CalculatedItinerary.swift */,
 				AE2E1C9D2BE3D50D005A7F02 /* City.swift */,
-				72DC59242BE675AA00D02C1B /* Choices.swift */,
 				0D5C28392BE26BD50069B92B /* Data.swift */,
 				AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */,
 			);
@@ -173,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				72D51CB22BE4369400327EA9 /* PlacesAPI */,
-				72D51CA02BE1216000327EA9 /* Common.swift */,
 				72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */,
 				72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */,
 				72D51CAE2BE3A21A00327EA9 /* IsolinesAPI.swift */,
@@ -264,7 +258,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72D51CA12BE1216000327EA9 /* Common.swift in Sources */,
 				72D51CBA2BE4414B00327EA9 /* PlacesDetailsAPI.swift in Sources */,
 				72DC591F2BE6757400D02C1B /* Activity.swift in Sources */,
 				AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */,
@@ -287,7 +280,6 @@
 				72D51CB62BE4392900327EA9 /* ConditionEnum.swift in Sources */,
 				0D00B9032BE1EB5F004C3052 /* ArtView.swift in Sources */,
 				0D34152F2BE2552E00B1075A /* ArchitectureView.swift in Sources */,
-				72DC59252BE675AA00D02C1B /* Choices.swift in Sources */,
 				72D51CB12BE3A24300327EA9 /* AutoCompleteAPI.swift in Sources */,
 				72DC59232BE675A300D02C1B /* CalculatedItinerary.swift in Sources */,
 				0D5C283E2BE271A10069B92B /* Places.swift in Sources */,

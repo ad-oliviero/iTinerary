@@ -13,13 +13,13 @@ class PlacesAPIRequest: GeoRequest {
   /// Categories of places to search (accommodation, activity, ...)
   var categories: [Category]
   /// Additional filter (internet_available, wheelchair, vegan, ...)
-  var conditions: [Condition]
+  var conditions: [Condition: Int]
   /// Max amount of results
   var limit: Int
   /// Kind of like page 1, 2, etc...
   var offset: Int
   init(
-    placeId: String!, categories: [Category]!, conditions: [Condition] = [], limit: Int = 20,
+    placeId: String!, categories: [Category]!, conditions: [Condition: Int] = [:], limit: Int = 20,
     offset: Int = 0
   ) {
     self.placeId = placeId
@@ -30,14 +30,13 @@ class PlacesAPIRequest: GeoRequest {
     super.init()
     super.apiVersion = "v2/"
     apiType = "places?"
-    parameters =
-      "filter=place:\(self.placeId)&categories=access,\(self.categories.map { $0.rawValue.1 }.joined(separator: ","))&conditions=\(self.conditions.map { $0.rawValue.1 }.joined(separator: ","))&limit=\(self.limit)&offset=\(self.offset)"
+    parameters = "filter=place:\(self.placeId)"
+    parameters +=
+      "&categories=access,\(self.categories.map {$0.rawValue.requestValue}.joined(separator: ","))"
+    if conditions.count > 0 {
+      parameters +=
+        "&conditions=\(self.conditions.map {$0.value == 1 ? $0.key.rawValue.value.requestValue : ($0.value == 2 ? $0.key.rawValue.notValue.requestValue : "")}.joined(separator: ","))"
+    }
+    parameters += "&limit=\(self.limit)&offset=\(self.offset)"
   }
-  //    public func responseToJson() async throws -> AutocompleteData {
-  //        do {
-  //            return try JSONDecoder().decode(AutocompleteData.self, from: response!)
-  //        } catch {
-  //            throw APIError.responseUninitialized
-  //        }
-  //    }
 }
