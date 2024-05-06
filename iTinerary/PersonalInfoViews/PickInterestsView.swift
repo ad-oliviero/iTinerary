@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct PickInterestsView: View {
-  @State var selectedCategories: [String: Bool] = Category.allCases.reduce(into: [:]) {
-    result, category in
-    result[category.rawValue.displayName] = false
+  @State var selectedCategories: [String: Bool]
+
+  init() {
+    self.selectedCategories = Category.allCases.reduce(into: [:]) {
+      result, category in
+      result[category.rawValue.displayName] = false
+    }
+    if let data = UserDefaults.standard.dictionary(forKey: "selectedCategories") {
+      selectedCategories = data as! [String: Bool]
+    }
   }
 
   var body: some View {
@@ -27,6 +34,7 @@ struct PickInterestsView: View {
               let selected = pair.value
               Button(action: {
                 selectedCategories[category]?.toggle()
+                UserDefaults.standard.set(selectedCategories, forKey: "selectedCategories")
               }) {
                 Text(category)
                   .padding()
