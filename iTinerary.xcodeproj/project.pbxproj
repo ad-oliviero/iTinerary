@@ -28,6 +28,7 @@
 		AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */; };
 		AE2E1CA22BE3D55E005A7F02 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */; };
 		AE2E1CA42BE3D640005A7F02 /* RecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CA32BE3D640005A7F02 /* RecapView.swift */; };
+		AE5751312BE915CC003FD95A /* OnboardingIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5751302BE915CC003FD95A /* OnboardingIView.swift */; };
 		AE91153F2BE3792200067675 /* ProfileStepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153B2BE3792200067675 /* ProfileStepsView.swift */; };
 		AE9115402BE3792200067675 /* PickInterestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153C2BE3792200067675 /* PickInterestsView.swift */; };
 		AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */; };
@@ -56,6 +57,7 @@
 		AE2E1C9F2BE3D51F005A7F02 /* SharedCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedCity.swift; sourceTree = "<group>"; };
 		AE2E1CA12BE3D55E005A7F02 /* MainPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 		AE2E1CA32BE3D640005A7F02 /* RecapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapView.swift; sourceTree = "<group>"; };
+		AE5751302BE915CC003FD95A /* OnboardingIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIView.swift; sourceTree = "<group>"; };
 		AE91153B2BE3792200067675 /* ProfileStepsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStepsView.swift; sourceTree = "<group>"; };
 		AE91153C2BE3792200067675 /* PickInterestsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickInterestsView.swift; sourceTree = "<group>"; };
 		AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalePreferencesView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				AE91153B2BE3792200067675 /* ProfileStepsView.swift */,
 				AE91153C2BE3792200067675 /* PickInterestsView.swift */,
 				AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */,
+				AE5751302BE915CC003FD95A /* OnboardingIView.swift */,
 			);
 			path = PersonalInfoViews;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				72DC59232BE675A300D02C1B /* CalculatedItinerary.swift in Sources */,
 				AE2E1C9E2BE3D50D005A7F02 /* City.swift in Sources */,
 				AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */,
+				AE5751312BE915CC003FD95A /* OnboardingIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

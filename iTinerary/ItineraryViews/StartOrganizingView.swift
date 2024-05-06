@@ -91,7 +91,7 @@ struct StartOrganizingView: View {
         }.listStyle(InsetGroupedListStyle())
           .navigationTitle("Start organizing!")
           .navigationBarItems(
-            trailing: NavigationLink(destination: ArtView(), isActive: $isNextViewActive) {
+            trailing: NavigationLink(destination: PickInterestsView(), isActive: $isNextViewActive) {
               Button(action: {
                 // Aggiungi direttamente la città al modello condiviso
                 myCity.creating = [City(name: city, image: city, budget: budget, durata: duration)]
