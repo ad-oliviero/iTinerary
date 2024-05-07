@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-struct TestData: Codable {
-  var name: String
-  var id: String
-}
-
 struct TestAPIView: View {
   var body: some View {
     NavigationStack {

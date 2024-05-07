@@ -4,8 +4,8 @@ import SwiftUI
 struct iTinerary: App {
     var body: some Scene {
         WindowGroup {
-          TestAPIView()
-//            ContentView()
+//          TestAPIView()
+            ContentView()
         }
     }
 }

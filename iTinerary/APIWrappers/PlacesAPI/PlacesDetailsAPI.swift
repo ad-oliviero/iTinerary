@@ -7,11 +7,6 @@
 
 import Foundation
 
-//struct PlaceDetailsData: Codable {
-//    let type: String
-//    let features: [Feature]
-//}
-
 class PlacesDetailsAPI: GeoRequest {
   /// Id of the city
   var placeId: String? = nil
