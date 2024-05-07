@@ -2,87 +2,62 @@
 import SwiftUI
 
 struct CategoryDetailView: View {
-    var selectedCategories: [Category: Bool]
-    let categoryName: String
-    let index: Int
-    @State private var placeId: String = ""
-    let myCity = SharedCity()
-    
-    init(selectedCategories: [Category: Bool], categoryName: String, index: Int) {
-        self.selectedCategories = selectedCategories
-        self.categoryName = categoryName
-        self.index = index
-    }
-    
-    var body: some View {
-        NavigationStack {
-            VStack {
-                // Visualizza il nome della categoria in maiuscolo
-                Text(categoryName.capitalized)
-                   .navigationTitle(categoryName.capitalized)
-                Spacer()
-            }
-           .navigationBarItems(
-                trailing: NavigationLink(destination: NextCategoryDetailView(selectedCategories: selectedCategories, currentIndex: index)) {
-                    HStack {
-                        Text("Next")
-                        Image(systemName: "chevron.right")
-                           .font(.system(size: 15))
-                           .font(.title)
-                    }
-                }
-            )
-           .onAppear {
-                self.fetchPlaceId(for: myCity.creating[0].name)
-            }
-        }
-    }
-    
-  private func fetchPlaceId(for city: String) {
-      Task {
-          do {
-              let request = AutoCompleteAPIRequest(text: city)
-              try await request.sendRequest()
+  var selectedCategories: [Category: Bool]
+  let category: Category
+  let index: Int
 
-              if let firstFeature = try? await request.responseToJson().features?.first {
-                  DispatchQueue.main.async {
-                      self.placeId = firstFeature.properties?.id ?? ""
-                  }
-              }
-
-              let request1 = PlacesAPIRequest(placeId: self.placeId, categories: Array(selectedCategories.filter { $0.value }.keys), conditions: [:], limit: 10, offset: 0)
-            ///print(request1.response)
-          } catch {
-              print("Error fetching place ID: \(error)")
-          }
-      }
+  init(selectedCategories: [Category: Bool], category: Category, index: Int) {
+    self.selectedCategories = selectedCategories
+    self.category = category
+    self.index = index
   }
-  
-}
 
-// NextCategoryDetailView.swift
-struct NextCategoryDetailView: View {
-    var selectedCategories: [Category: Bool]
-    let currentIndex: Int
-    
-    var body: some View {
-        let categoryKeys = selectedCategories.filter { $0.value }.keys.sorted { $0.rawValue < $1.rawValue }
-        let nextIndex = currentIndex + 1
-        if nextIndex < categoryKeys.count {
-            let nextCategory = categoryKeys[nextIndex]
-            let nextCategoryName = nextCategory.rawValue.displayName
-            return AnyView(CategoryDetailView(selectedCategories: selectedCategories, categoryName: nextCategoryName, index: nextIndex))
-        } else {
-            // Handle if there's no next category
-            return AnyView(MainPageView())
+  var body: some View {
+    NavigationStack {
+      VStack {
+        // Visualizza il nome della categoria in maiuscolo
+        Text(category.rawValue.displayName)
+          .navigationTitle(category.rawValue.displayName)
+        Spacer()
+      }
+      .navigationBarItems(
+        trailing: NavigationLink(
+          destination: (selectedCategories.filter{$0.value}.keys.count > index + 1) ? AnyView(CategoryDetailView(
+            selectedCategories: selectedCategories, category: selectedCategories.filter{$0.value}.keys.sorted {$0.rawValue.displayName<$1.rawValue.displayName}[index + 1], index: index+1)) : AnyView(RecapView())
+        ) {
+          HStack {
+            Text("Next")
+            Image(systemName: "chevron.right")
+              .font(.system(size: 15))
+              .font(.title)
+          }
         }
+      )
+      .onAppear {
+        self.fetchPlaceId(for: sharedCity.creating.name)
+      }
     }
+  }
+
+  private func fetchPlaceId(for city: String) {
+    Task {
+      do {
+        let request = try await PlacesAPIRequest(placeId: sharedCity.creating.placeId, category: category, limit: 10, offset: 0)
+        for idx in 0..<(request.json["features"]! as AnyObject).count {
+          print(request.getFromJson(path: "properties/name", index: idx))
+        }
+      } catch {
+        print("Error fetching place ID: \(error)")
+      }
+    }
+  }
+
 }
 
 #if DEBUG
-struct CategoryDetailView_Previews: PreviewProvider {
+  struct CategoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryDetailView(selectedCategories: [:], categoryName: "", index: 0)
+      CategoryDetailView(selectedCategories: [:], category: .camping, index: 0)
     }
-}
+  }
 #endif

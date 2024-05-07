@@ -16,11 +16,13 @@ class PlacesDetailsAPI: GeoRequest {
   var lon: String? = nil
   init(placeId: String!) async throws {
     self.placeId = placeId
-    try await super.init(apiType: "place-details?", apiVersion: "v2/", parameters: "id=\(self.placeId!)")
+    try await super.init(
+      apiType: "place-details?", apiVersion: "v2/", parameters: "id=\(self.placeId!)")
   }
   init(lat: String!, lon: String!) async throws {
     self.lat = lat
     self.lon = lon
-    try await super.init(apiType: "place-details?", apiVersion: "v2/", parameters: "lat=\(self.lat!)&lon=\(self.lon!)")
+    try await super.init(
+      apiType: "place-details?", apiVersion: "v2/", parameters: "lat=\(self.lat!)&lon=\(self.lon!)")
   }
 }

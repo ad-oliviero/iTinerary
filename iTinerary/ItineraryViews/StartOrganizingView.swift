@@ -44,11 +44,7 @@ struct MultiDatePicker: View {
 }
 
 struct StartOrganizingView: View {
-  var myCity = SharedCity()
   @State var combinedText = ""
-  @State var city = ""
-  @State var state = ""
-  @State var country = ""
   @State var startDate = Date()
   @State var endDate = Date()
   @State var duration = 0
@@ -91,10 +87,12 @@ struct StartOrganizingView: View {
         }.listStyle(InsetGroupedListStyle())
           .navigationTitle("Start organizing!")
           .navigationBarItems(
-            trailing: NavigationLink(destination: PickInterestsView(), isActive: $isNextViewActive) {
+            trailing: NavigationLink(destination: PickInterestsView(), isActive: $isNextViewActive)
+            {
               Button(action: {
                 // Aggiungi direttamente la città al modello condiviso
-                myCity.creating = [City(name: city, image: city, budget: budget, durata: duration)]
+                sharedCity.creating.budget = budget
+                sharedCity.creating.durata = duration
                 isNextViewActive = true
               }) {
                 Text("Next")
@@ -107,29 +105,22 @@ struct StartOrganizingView: View {
   }
 
   private func fetchCityData(city: String) {
-    print("Fetching data for city: \(city)")
-
     isFetchingData = true
-
     Task {
-//      do {
-//        let request = AutoCompleteAPIRequest(text: city)
-//        try await request.sendRequest()
-//        if let firstFeature = try? await request.responseToJson().features?.first {
-//          DispatchQueue.main.async {
-//            self.city = firstFeature.properties?.city ?? ""
-//            self.state = firstFeature.properties?.state ?? ""
-//            self.country = firstFeature.properties?.country ?? ""
-//            self.combinedText = "\(self.city), \(self.state), \(self.country)"
-//          }
-//        }
-//        isFetchingData = false
-//        isErrorOccurred = false
-//      } catch {
-//        print(error.localizedDescription)
-//        isFetchingData = false
-//        isErrorOccurred = true
-//      }
+      do {
+        let request = try await AutoCompleteAPIRequest(text: city)
+        sharedCity.creating = City(
+          name: request.getFromJson(path: "properties/city", index: 0),
+          placeId: request.getFromJson(path: "properties/place_id", index: 0)
+        )
+        self.combinedText = "\(String(describing: sharedCity.creating.name)), \(request.getFromJson(path: "properties/state", index: 0)), \(request.getFromJson(path: "properties/country", index: 0))"
+        isFetchingData = false
+        isErrorOccurred = false
+      } catch {
+        print(error.localizedDescription)
+        isFetchingData = false
+        isErrorOccurred = true
+      }
     }
   }
 }

@@ -10,10 +10,10 @@ import SwiftUI
 
 struct City: Identifiable {
   var id = UUID()
-  var name: String
-  var image: String
-  var date: Date = Date()
+  var name: String = ""
+  var image: String = ""
   var budget: Int = 0
   var durata: Int = 0
+  var placeId: String = ""
   var isDone: Bool = false
 }

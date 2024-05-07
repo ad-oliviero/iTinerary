@@ -11,7 +11,6 @@ struct PersonalPreferencesView: View {
     do {
       let data = try Data(contentsOf: selectedConditions_JSON)
       self.selectedConditions = try JSONDecoder().decode([ConditionStruct: Int].self, from: data)
-      print(selectedConditions)
     } catch {
       print(error.localizedDescription)
       self.selectedConditions = Condition.allCases.reduce(into: [:]) {
@@ -25,7 +24,9 @@ struct PersonalPreferencesView: View {
     NavigationStack {
       VStack(spacing: 20) {
         Spacer()
-        Text("Express your preferences before starting").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold().multilineTextAlignment(.center)
+        Text("Express your preferences before starting").font( /*@START_MENU_TOKEN@*/
+          .title /*@END_MENU_TOKEN@*/
+        ).bold().multilineTextAlignment(.center)
         Text("Pick one per category")
           .frame(maxWidth: .infinity)
 
