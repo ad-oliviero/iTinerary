@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D6C2D302BE1029700CE0476 /* StartOrganizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */; };
 		0DB910CD2BE3A29E008B4341 /* ItineraryView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */; };
+		723E31A62BEA71AD00808FD3 /* WikiDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E31A52BEA71AD00808FD3 /* WikiDataAPI.swift */; };
+		723E31A82BEA723500808FD3 /* HttpAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E31A72BEA723500808FD3 /* HttpAPIRequest.swift */; };
 		7250B56F2BDFB13F00DED6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */; };
 		7250B5722BDFB13F00DED6D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B5712BDFB13F00DED6D8 /* Preview Assets.xcassets */; };
 		72B5724F2BE4DD560021A002 /* CommonStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5724E2BE4DD560021A002 /* CommonStructs.swift */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOrganizingView.swift; sourceTree = "<group>"; };
 		0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView1.swift; sourceTree = "<group>"; };
+		723E31A52BEA71AD00808FD3 /* WikiDataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiDataAPI.swift; sourceTree = "<group>"; };
+		723E31A72BEA723500808FD3 /* HttpAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpAPIRequest.swift; sourceTree = "<group>"; };
 		7250B5672BDFB13D00DED6D8 /* iTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7250B5712BDFB13F00DED6D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */,
 				72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */,
 				72D51CB02BE3A24300327EA9 /* AutoCompleteAPI.swift */,
+				723E31A52BEA71AD00808FD3 /* WikiDataAPI.swift */,
+				723E31A72BEA723500808FD3 /* HttpAPIRequest.swift */,
 			);
 			path = APIWrappers;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 			files = (
 				72D51CBA2BE4414B00327EA9 /* PlacesDetailsAPI.swift in Sources */,
 				72DC591F2BE6757400D02C1B /* Activity.swift in Sources */,
+				723E31A82BEA723500808FD3 /* HttpAPIRequest.swift in Sources */,
 				AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */,
 				AE2E1CA22BE3D55E005A7F02 /* MainPageView.swift in Sources */,
 				72D51CB42BE436CA00327EA9 /* CategoryEnum.swift in Sources */,
@@ -259,6 +266,7 @@
 				72DC59232BE675A300D02C1B /* CalculatedItinerary.swift in Sources */,
 				AE5751372BEA9D2A003FD95A /* ActivityView.swift in Sources */,
 				AE2E1C9E2BE3D50D005A7F02 /* City.swift in Sources */,
+				723E31A62BEA71AD00808FD3 /* WikiDataAPI.swift in Sources */,
 				AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */,
 				AE5751312BE915CC003FD95A /* OnboardingIView.swift in Sources */,
 				AE5751332BE95638003FD95A /* CategoryDetailView.swift in Sources */,
