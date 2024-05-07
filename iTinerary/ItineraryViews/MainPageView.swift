@@ -99,7 +99,11 @@ struct MainPageView: View {
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
           Button(action: {
-            isModalPresented.toggle()
+            if selectedConditions.values.allSatisfy({ $0 == 0 || $0 == 1 }) {
+              isModalPresented.toggle()
+            } else {
+              PersonalPreferencesView()
+            }
           }) {
             Image(systemName: "plus")
           }

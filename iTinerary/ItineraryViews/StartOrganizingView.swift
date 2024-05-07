@@ -91,7 +91,7 @@ struct StartOrganizingView: View {
         }.listStyle(InsetGroupedListStyle())
           .navigationTitle("Start organizing!")
           .navigationBarItems(
-            trailing: NavigationLink(destination: ArtView(), isActive: $isNextViewActive) {
+            trailing: NavigationLink(destination: PickInterestsView(), isActive: $isNextViewActive) {
               Button(action: {
                 // Aggiungi direttamente la città al modello condiviso
                 myCity.creating = [City(name: city, image: city, budget: budget, durata: duration)]
@@ -112,24 +112,24 @@ struct StartOrganizingView: View {
     isFetchingData = true
 
     Task {
-      do {
-        let request = AutoCompleteAPIRequest(text: city)
-        try await request.sendRequest()
-        if let firstFeature = try? await request.responseToJson().features?.first {
-          DispatchQueue.main.async {
-            self.city = firstFeature.properties?.city ?? ""
-            self.state = firstFeature.properties?.state ?? ""
-            self.country = firstFeature.properties?.country ?? ""
-            self.combinedText = "\(self.city), \(self.state), \(self.country)"
-          }
-        }
-        isFetchingData = false
-        isErrorOccurred = false
-      } catch {
-        print(error.localizedDescription)
-        isFetchingData = false
-        isErrorOccurred = true
-      }
+//      do {
+//        let request = AutoCompleteAPIRequest(text: city)
+//        try await request.sendRequest()
+//        if let firstFeature = try? await request.responseToJson().features?.first {
+//          DispatchQueue.main.async {
+//            self.city = firstFeature.properties?.city ?? ""
+//            self.state = firstFeature.properties?.state ?? ""
+//            self.country = firstFeature.properties?.country ?? ""
+//            self.combinedText = "\(self.city), \(self.state), \(self.country)"
+//          }
+//        }
+//        isFetchingData = false
+//        isErrorOccurred = false
+//      } catch {
+//        print(error.localizedDescription)
+//        isFetchingData = false
+//        isErrorOccurred = true
+//      }
     }
   }
 }

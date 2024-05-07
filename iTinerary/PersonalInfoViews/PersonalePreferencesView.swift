@@ -24,8 +24,10 @@ struct PersonalPreferencesView: View {
   var body: some View {
     NavigationStack {
       VStack(spacing: 20) {
+        Spacer()
+        Text("Express your preferences before starting").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold().multilineTextAlignment(.center)
         Text("Pick one per category")
-          .frame(maxWidth: .infinity, alignment: .leading)
+          .frame(maxWidth: .infinity)
 
         ForEach(Array(selectedConditions.enumerated()), id: \.element.key) { index, pair in
           let condition = pair.key
@@ -70,19 +72,7 @@ struct PersonalPreferencesView: View {
         Spacer()
       }
       .padding()
-      .navigationBarTitle("Personal Preferences")
-      .navigationBarItems(
-        trailing: Group {
-          NavigationLink(destination: MainPageView()) {
-            HStack {
-              Text("Next")
-              Image(systemName: "chevron.right")
-                .font(.system(size: 15))
-                .font(.title)
-            }
-          }.disabled(!selectedConditions.values.allSatisfy { $0 != 0 })
-        }
-      )
+
     }
   }
 }

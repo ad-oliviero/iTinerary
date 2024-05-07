@@ -1,27 +1,25 @@
-//
-//  iTineraryApp.swift
-//  iTravel
-//
-//  Created by Adriano Oliviero on 03/05/24.
-//
-
 import SwiftUI
 
 @main
-struct iTineraryApp: App {
-  var body: some Scene {
-    WindowGroup {
-      PersonalInfo()
+struct iTinerary: App {
+    var body: some Scene {
+        WindowGroup {
+//          TestAPIView()
+            ContentView()
+        }
     }
-  }
 }
 
 struct ContentView: View {
-  var body: some View {
-    PersonalInfo()
-  }
-}
-
-#Preview {
-  ContentView()
+    var body: some View {
+        VStack {
+            if UserDefaults.standard.bool(forKey: "KeyOnBoardingViewShown") == false {
+                // show your onboarding view
+                return AnyView(OnboardingView())
+            } else {
+                // show your main content view
+                return AnyView(MainPageView())
+            }
+        }
+    }
 }
