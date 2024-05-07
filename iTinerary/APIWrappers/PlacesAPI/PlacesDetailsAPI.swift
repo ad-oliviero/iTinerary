@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PlacesDetailsAPI: GeoRequest {
+class PlacesDetailsAPIRequest: GeoRequest {
   /// Id of the city
   var placeId: String? = nil
   /// Latitude

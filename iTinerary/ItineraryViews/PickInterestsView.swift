@@ -54,9 +54,10 @@ struct PickInterestsView: View {
         trailing: NavigationLink(
           destination: CategoryDetailView(
             selectedCategories: selectedCategories,
-            category: selectedCategories.filter{$0.value}.count != 0 ? selectedCategories.filter{$0.value}.keys.sorted {
-              $0.rawValue.displayName < $1.rawValue.displayName
-            }[0] : .tourism, index: 0)
+            category: selectedCategories.filter { $0.value }.count != 0
+              ? selectedCategories.filter { $0.value }.keys.sorted {
+                $0.rawValue.displayName < $1.rawValue.displayName
+              }[0] : .tourism, index: 0)
         ) {
           HStack {
             Text("Next")

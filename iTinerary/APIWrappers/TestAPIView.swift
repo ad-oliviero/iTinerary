@@ -13,47 +13,30 @@ struct TestAPIView: View {
       VStack {
         Button {
           Task {
-            //                        do {
-            //                          let request = IsoLinesAPIRequest(
-            //                            lat: "40.8358846", lon: "14.2487679", isoType: .isochrone, mode: .car, range: 300)
-            //                          try await request.sendRequest()
-            //                          print(try await request.responseToJson())
-            //                        } catch {
-            //                          print(error.localizedDescription)
-            //                        }
+            //            do {
+            //              let request = try await AutoCompleteAPIRequest(text: "Naples")
+            //              for idx in 0..<(request.json["features"]! as AnyObject).count {
+            //                print(
+            //                  "\(request.getFromJson(path: "properties/city", index: idx)), \(request.getFromJson(path: "properties/country", index: idx)), \(request.getFromJson(path: "properties/state", index: idx)), \(request.getFromJson(path: "properties/wikidata", index: idx))"
+            //                )
+            //              }
+            //            } catch {
+            //              print(error.localizedDescription)
+            //            }
 
             do {
-              let request = try await AutoCompleteAPIRequest(text: "Naples")
+              let request = try await PlacesDetailsAPIRequest(
+                placeId:
+                  "51ba9520bc96802c40596aa27af9426d4440f00101f90193593a00000000009203264d7573656f2061726368656f6c6f6769636f206e617a696f6e616c65206469204e61706f6c69"
+              )
               for idx in 0..<(request.json["features"]! as AnyObject).count {
                 print(
-                  "\(request.getFromJson(path: "properties/city", index: idx)), \(request.getFromJson(path: "properties/country", index: idx)), \(request.getFromJson(path: "properties/state", index: idx))"
+                  "\(request.getFromJson(path: "properties/name", index: idx)), \(request.getFromJson(path: "properties/city", index: idx)), \(request.getFromJson(path: "properties/state", index: idx)), \(request.getFromJson(path: "properties/wiki_and_media/wikidata", index: idx))"
                 )
               }
             } catch {
               print(error.localizedDescription)
             }
-
-            //            do {
-            //              let request = PlacesAPIRequest(
-            //                placeId:
-            //                  "51a8c64b3789792c40597fdfbf79716e4440c00206e2031e77686f736f6e66697273743a6c6f63616c6974793a313031373532353535",
-            //                categories: Category.allCases.map { $0 }, limit: 10, offset: 0)
-            //              try await request.sendRequest()
-            //              print(try await request.responseToJson())
-            //            } catch {
-            //              print(error.localizedDescription)
-            //            }
-
-            //                        do {
-            //                          let request = PlacesDetailsAPI(
-            //                            placeId:
-            //                              "51a8c64b3789792c40597fdfbf79716e4440c00206e2031e77686f736f6e66697273743a6c6f63616c6974793a313031373532353535"
-            //                          )
-            //                          try await request.sendRequest()
-            //                          print(try await request.responseToJson())
-            //                        } catch {
-            //                          print(error.localizedDescription)
-            //                        }
           }
         } label: {
           Text("Request")

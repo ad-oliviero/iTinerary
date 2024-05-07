@@ -15,23 +15,32 @@ class GeoRequest {
   private let apiKey = "95db4ee1c9da4c189181b24afc86e0db"  // TODO: Make this shit secure
   private let lang = "en"  // TODO: Make this dynamic
 
+  private func findInFeature(feature: [String: Any], path: [String], idx: Int) -> Any {
+    for f in feature {
+      if f.key == path[idx] {
+        if let value = f.value as? String {
+          return value
+        } else {
+          print("Error: \(f.value) is not a String")
+          return ""
+        }
+      }
+    }
+    return ""
+  }
+
   /// path is a string like: "properties/city"
   /// WARNING: DO NOT PUT "features/" IN PATH!
   public func getFromJson(path: String, index: Int) -> String {
-    let splitPath = path.split(separator: "/")
+    let splitPath = path.split(separator: "/").map { String($0) }
     if let features = json["features"] as? [[String: Any]] {
       let feature: [String: Any] = features[index]
-      for i in 0..<splitPath.count {
-        let newFeature: Any = feature[String(splitPath[i])] ?? "\(splitPath[i]) not found"
-        if type(of: newFeature) == String.self {
-          return newFeature as! String
-        }
-        for f in newFeature as! [String: Any] {
-          if f.key == splitPath[i + 1] {
-            return f.value as! String
-          }
-        }
+      let newFeature: Any = feature[String(splitPath[0])] ?? "\(splitPath[0]) not found"
+      if type(of: newFeature) == String.self {
+        return newFeature as! String
       }
+      print(findInFeature(feature: newFeature as! [String: Any], path: splitPath, idx: 1))
+      return ""
     }
     return "\(path) not found"
   }
