@@ -13,7 +13,7 @@ struct ConditionStruct: Codable, Hashable {
     case value
     case notValue
   }
-  
+
   func hash(into hasher: inout Hasher) {
     hasher.combine(value)
     hasher.combine(notValue)

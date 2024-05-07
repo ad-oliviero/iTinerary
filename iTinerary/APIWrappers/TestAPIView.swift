@@ -7,38 +7,12 @@
 
 import SwiftUI
 
-struct TestData: Codable {
-  var name: String
-  var id: String
-}
-
 struct TestAPIView: View {
   var body: some View {
     NavigationStack {
       VStack {
         Button {
-          guard let data = UserDefaults.standard.data(forKey: "testdata") else {
-            return
-          }
-          do {
-            let testdata = try JSONDecoder().decode(TestData.self, from: data)
-            print(testdata)
-          } catch {
-            print(error.localizedDescription)
-          }
-        } label: {
-          Text("GET")
-        }
-        Button {
-          do {
-            UserDefaults.standard.set(
-              try JSONEncoder().encode(TestData(name: "qwertyuiopè", id: "1348t6847y13")),
-              forKey: "testdata")
-          } catch {
-            print(error.localizedDescription)
-          }
-
-          //          Task {
+                    Task {
           //                        do {
           //                          let request = IsoLinesAPIRequest(
           //                            lat: "40.8358846", lon: "14.2487679", isoType: .isochrone, mode: .car, range: 300)
@@ -48,13 +22,15 @@ struct TestAPIView: View {
           //                          print(error.localizedDescription)
           //                        }
 
-          //            do {
-          //              let request = AutoCompleteAPIRequest(text: "Roma")
-          //              try await request.sendRequest()
-          //              print(try await request.responseToJson())
-          //            } catch {
-          //              print(error.localizedDescription)
-          //            }
+                      do {
+                        let request = try await AutoCompleteAPIRequest(text: "Naples")
+                        for idx in 0..<(request.json["features"]! as AnyObject).count {
+                          print("\(request.getFromJson(path: "properties/city", index: idx)), \(request.getFromJson(path: "properties/country", index: idx)), \(request.getFromJson(path: "properties/state", index: idx))")
+                          print()
+                        }
+                      } catch {
+                        print(error.localizedDescription)
+                      }
 
           //            do {
           //              let request = PlacesAPIRequest(
@@ -77,7 +53,7 @@ struct TestAPIView: View {
           //                        } catch {
           //                          print(error.localizedDescription)
           //                        }
-          //          }
+                    }
         } label: {
           Text("Request")
         }
