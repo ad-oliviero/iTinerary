@@ -28,7 +28,6 @@ struct TestAPIView: View {
                 print(
                   "\(request.getFromJson(path: "properties/city", index: idx)), \(request.getFromJson(path: "properties/country", index: idx)), \(request.getFromJson(path: "properties/state", index: idx))"
                 )
-                print()
               }
             } catch {
               print(error.localizedDescription)

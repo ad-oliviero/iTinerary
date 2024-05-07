@@ -19,7 +19,8 @@ class GeoRequest {
   /// WARNING: DO NOT PUT "features/" IN PATH!
   public func getFromJson(path: String, index: Int) -> String {
     let splitPath = path.split(separator: "/")
-    var feature: [String: Any] = (json["features"] as! [[String: Any]])[index]
+    if let features = json["features"] as? [[String: Any]]{
+    let feature: [String: Any] = features[index]
     for i in 0..<splitPath.count {
       let newFeature: Any = feature[String(splitPath[i])] ?? "\(splitPath[i]) not found"
       if type(of: newFeature) == String.self {
@@ -30,7 +31,7 @@ class GeoRequest {
           return f.value as! String
         }
       }
-    }
+    }}
     return "\(path) not found"
   }
 

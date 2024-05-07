@@ -17,7 +17,7 @@ class SharedCity {
 
   var toDo: [City] = []
 
-  var creating: [City] = [City(name: "Rome", image: "rome")]
+  var creating: City = City()
 
 }
 

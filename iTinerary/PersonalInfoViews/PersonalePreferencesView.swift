@@ -11,7 +11,6 @@ struct PersonalPreferencesView: View {
     do {
       let data = try Data(contentsOf: selectedConditions_JSON)
       self.selectedConditions = try JSONDecoder().decode([ConditionStruct: Int].self, from: data)
-      print(selectedConditions)
     } catch {
       print(error.localizedDescription)
       self.selectedConditions = Condition.allCases.reduce(into: [:]) {

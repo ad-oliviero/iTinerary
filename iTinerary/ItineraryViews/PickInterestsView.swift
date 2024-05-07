@@ -36,7 +36,7 @@ struct PickInterestsView: View {
                 selectedCategories[category]?.toggle()
                 saveSelectedCategories()
               }) {
-                Text(category.rawValue)
+                Text(category.rawValue.displayName)
                   .padding()
                   .background(selected ? Color.blue : Color.blue.opacity(0.2))
                   .foregroundColor(selected ? .white : .blue)
@@ -54,9 +54,7 @@ struct PickInterestsView: View {
         trailing: NavigationLink(
           destination: CategoryDetailView(
             selectedCategories: selectedCategories,
-            categoryName: selectedCategories.filter { $0.value }.keys.sorted {
-              $0.rawValue < $1.rawValue
-            }.first?.rawValue ?? "", index: 0)
+            category: selectedCategories.filter { $0.value }.keys.sorted {$0.rawValue.displayName<$1.rawValue.displayName}[0], index: 0)
         ) {
           HStack {
             Text("Next")

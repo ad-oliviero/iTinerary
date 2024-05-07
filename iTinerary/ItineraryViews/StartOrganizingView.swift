@@ -44,12 +44,7 @@ struct MultiDatePicker: View {
 }
 
 struct StartOrganizingView: View {
-  var myCity = SharedCity()
   @State var combinedText = ""
-  @State var city = ""
-  @State var state = ""
-  @State var country = ""
-  @State var placeId = ""
   @State var startDate = Date()
   @State var endDate = Date()
   @State var duration = 0
@@ -96,7 +91,8 @@ struct StartOrganizingView: View {
             {
               Button(action: {
                 // Aggiungi direttamente la città al modello condiviso
-                myCity.creating = [City(name: city, image: city, budget: budget, durata: duration)]
+                sharedCity.creating.budget = budget
+                sharedCity.creating.durata = duration
                 isNextViewActive = true
               }) {
                 Text("Next")
@@ -109,18 +105,15 @@ struct StartOrganizingView: View {
   }
 
   private func fetchCityData(city: String) {
-    print("Fetching data for city: \(city)")
-
     isFetchingData = true
-
     Task {
       do {
         let request = try await AutoCompleteAPIRequest(text: city)
-        self.city = request.getFromJson(path: "properties/city", index: 0)
-        self.state = request.getFromJson(path: "properties/state", index: 0)
-        self.country = request.getFromJson(path: "properties/country", index: 0)
-        self.placeId = request.getFromJson(path: "properties/place_id", index: 0)
-        self.combinedText = "\(self.city), \(self.state), \(self.country)"
+        sharedCity.creating = City(
+          name: request.getFromJson(path: "properties/city", index: 0),
+          placeId: request.getFromJson(path: "properties/place_id", index: 0)
+        )
+        self.combinedText = "\(String(describing: sharedCity.creating.name)), \(request.getFromJson(path: "properties/state", index: 0)), \(request.getFromJson(path: "properties/country", index: 0))"
         isFetchingData = false
         isErrorOccurred = false
       } catch {

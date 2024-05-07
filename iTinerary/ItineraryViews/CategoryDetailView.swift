@@ -3,14 +3,12 @@ import SwiftUI
 
 struct CategoryDetailView: View {
   var selectedCategories: [Category: Bool]
-  let categoryName: String
+  let category: Category
   let index: Int
-  @State private var placeId: String = ""
-  let myCity = SharedCity()
 
-  init(selectedCategories: [Category: Bool], categoryName: String, index: Int) {
+  init(selectedCategories: [Category: Bool], category: Category, index: Int) {
     self.selectedCategories = selectedCategories
-    self.categoryName = categoryName
+    self.category = category
     self.index = index
   }
 
@@ -18,14 +16,14 @@ struct CategoryDetailView: View {
     NavigationStack {
       VStack {
         // Visualizza il nome della categoria in maiuscolo
-        Text(categoryName.capitalized)
-          .navigationTitle(categoryName.capitalized)
+        Text(category.rawValue.displayName)
+          .navigationTitle(category.rawValue.displayName)
         Spacer()
       }
       .navigationBarItems(
         trailing: NavigationLink(
-          destination: NextCategoryDetailView(
-            selectedCategories: selectedCategories, currentIndex: index)
+          destination: (selectedCategories.filter{$0.value}.keys.count > index + 1) ? AnyView(CategoryDetailView(
+            selectedCategories: selectedCategories, category: selectedCategories.filter{$0.value}.keys.sorted {$0.rawValue.displayName<$1.rawValue.displayName}[index + 1], index: index+1)) : AnyView(RecapView())
         ) {
           HStack {
             Text("Next")
@@ -36,7 +34,7 @@ struct CategoryDetailView: View {
         }
       )
       .onAppear {
-        self.fetchPlaceId(for: myCity.creating[0].name)
+        self.fetchPlaceId(for: sharedCity.creating.name)
       }
     }
   }
@@ -44,17 +42,10 @@ struct CategoryDetailView: View {
   private func fetchPlaceId(for city: String) {
     Task {
       do {
-        //              let request = AutoCompleteAPIRequest(text: city)
-        //              try await request.sendRequest()
-        //
-        //              if let firstFeature = try? await request.responseToJson().features?.first {
-        //                  DispatchQueue.main.async {
-        //                      self.placeId = firstFeature.properties?.id ?? ""
-        //                  }
-        //              }
-
-        //              let request1 = PlacesAPIRequest(placeId: self.placeId, categories: Array(selectedCategories.filter { $0.value }.keys), conditions: [:], limit: 10, offset: 0)
-        //print(request1.response)
+        let request = try await PlacesAPIRequest(placeId: sharedCity.creating.placeId, category: category, limit: 10, offset: 0)
+        for idx in 0..<(request.json["features"]! as AnyObject).count {
+          print(request.getFromJson(path: "properties/name", index: idx))
+        }
       } catch {
         print("Error fetching place ID: \(error)")
       }
@@ -63,33 +54,10 @@ struct CategoryDetailView: View {
 
 }
 
-// NextCategoryDetailView.swift
-struct NextCategoryDetailView: View {
-  var selectedCategories: [Category: Bool]
-  let currentIndex: Int
-
-  var body: some View {
-    let categoryKeys = selectedCategories.filter { $0.value }.keys.sorted {
-      $0.rawValue < $1.rawValue
-    }
-    let nextIndex = currentIndex + 1
-    if nextIndex < categoryKeys.count {
-      let nextCategory = categoryKeys[nextIndex]
-      let nextCategoryName = nextCategory.rawValue.displayName
-      return AnyView(
-        CategoryDetailView(
-          selectedCategories: selectedCategories, categoryName: nextCategoryName, index: nextIndex))
-    } else {
-      // Handle if there's no next category
-      return AnyView(MainPageView())
-    }
-  }
-}
-
 #if DEBUG
   struct CategoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-      CategoryDetailView(selectedCategories: [:], categoryName: "", index: 0)
+      CategoryDetailView(selectedCategories: [:], category: .camping, index: 0)
     }
   }
 #endif

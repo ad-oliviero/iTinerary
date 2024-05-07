@@ -3,8 +3,8 @@ import SwiftUI
 struct RecapView: View {
   var itinerary = CalculatedItinerary()
   @State private var isNextViewActive = false
-  var myCity = sharedCity.creating[0]
-  var duration = sharedCity.creating[0].durata
+  var myCity = sharedCity.creating
+  var duration = sharedCity.creating.durata
 
   var body: some View {
     NavigationStack {
@@ -30,7 +30,7 @@ struct RecapView: View {
         .listStyle(InsetGroupedListStyle())
 
         Button(action: {
-          sharedCity.toDo.append(sharedCity.creating[0])
+          sharedCity.toDo.append(sharedCity.creating)
           isNextViewActive = true
         }) {
           HStack {
