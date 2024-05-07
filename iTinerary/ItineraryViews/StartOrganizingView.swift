@@ -112,24 +112,24 @@ struct StartOrganizingView: View {
     isFetchingData = true
 
     Task {
-      do {
-        let request = AutoCompleteAPIRequest(text: city)
-        try await request.sendRequest()
-        if let firstFeature = try? await request.responseToJson().features?.first {
-          DispatchQueue.main.async {
-            self.city = firstFeature.properties?.city ?? ""
-            self.state = firstFeature.properties?.state ?? ""
-            self.country = firstFeature.properties?.country ?? ""
-            self.combinedText = "\(self.city), \(self.state), \(self.country)"
-          }
-        }
-        isFetchingData = false
-        isErrorOccurred = false
-      } catch {
-        print(error.localizedDescription)
-        isFetchingData = false
-        isErrorOccurred = true
-      }
+//      do {
+//        let request = AutoCompleteAPIRequest(text: city)
+//        try await request.sendRequest()
+//        if let firstFeature = try? await request.responseToJson().features?.first {
+//          DispatchQueue.main.async {
+//            self.city = firstFeature.properties?.city ?? ""
+//            self.state = firstFeature.properties?.state ?? ""
+//            self.country = firstFeature.properties?.country ?? ""
+//            self.combinedText = "\(self.city), \(self.state), \(self.country)"
+//          }
+//        }
+//        isFetchingData = false
+//        isErrorOccurred = false
+//      } catch {
+//        print(error.localizedDescription)
+//        isFetchingData = false
+//        isErrorOccurred = true
+//      }
     }
   }
 }
