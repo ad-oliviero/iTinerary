@@ -25,7 +25,9 @@ struct PersonalPreferencesView: View {
     NavigationStack {
       VStack(spacing: 20) {
         Spacer()
-        Text("Express your preferences before starting").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold().multilineTextAlignment(.center)
+        Text("Express your preferences before starting").font( /*@START_MENU_TOKEN@*/
+          .title /*@END_MENU_TOKEN@*/
+        ).bold().multilineTextAlignment(.center)
         Text("Pick one per category")
           .frame(maxWidth: .infinity)
 

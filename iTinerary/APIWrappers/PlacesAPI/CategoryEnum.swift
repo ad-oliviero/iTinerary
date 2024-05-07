@@ -5,7 +5,7 @@
 //  Created by Adriano Oliviero on 02/05/24.
 //
 
-enum Category: String, Codable, Hashable, CaseIterable{
+enum Category: String, Codable, Hashable, CaseIterable {
   case sport
   case adult
   case beach
