@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D34152B2BE226A200B1075A /* VaticanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34152A2BE226A100B1075A /* VaticanView.swift */; };
 		0D6C2D302BE1029700CE0476 /* StartOrganizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */; };
 		0DB910CD2BE3A29E008B4341 /* ItineraryView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */; };
 		7250B56F2BDFB13F00DED6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7250B56E2BDFB13F00DED6D8 /* Assets.xcassets */; };
@@ -29,12 +28,12 @@
 		AE2E1CA42BE3D640005A7F02 /* RecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E1CA32BE3D640005A7F02 /* RecapView.swift */; };
 		AE5751312BE915CC003FD95A /* OnboardingIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5751302BE915CC003FD95A /* OnboardingIView.swift */; };
 		AE5751332BE95638003FD95A /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5751322BE95638003FD95A /* CategoryDetailView.swift */; };
+		AE5751372BEA9D2A003FD95A /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5751362BEA9D2A003FD95A /* ActivityView.swift */; };
 		AE9115402BE3792200067675 /* PickInterestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153C2BE3792200067675 /* PickInterestsView.swift */; };
 		AE9115412BE3792200067675 /* PersonalePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D34152A2BE226A100B1075A /* VaticanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaticanView.swift; sourceTree = "<group>"; };
 		0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOrganizingView.swift; sourceTree = "<group>"; };
 		0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView1.swift; sourceTree = "<group>"; };
 		7250B5672BDFB13D00DED6D8 /* iTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +56,7 @@
 		AE2E1CA32BE3D640005A7F02 /* RecapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapView.swift; sourceTree = "<group>"; };
 		AE5751302BE915CC003FD95A /* OnboardingIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIView.swift; sourceTree = "<group>"; };
 		AE5751322BE95638003FD95A /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
+		AE5751362BEA9D2A003FD95A /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		AE91153C2BE3792200067675 /* PickInterestsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickInterestsView.swift; sourceTree = "<group>"; };
 		AE91153D2BE3792200067675 /* PersonalePreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalePreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,9 +140,9 @@
 				0D6C2D2F2BE1029700CE0476 /* StartOrganizingView.swift */,
 				AE91153C2BE3792200067675 /* PickInterestsView.swift */,
 				AE5751322BE95638003FD95A /* CategoryDetailView.swift */,
+				AE5751362BEA9D2A003FD95A /* ActivityView.swift */,
 				AE2E1CA32BE3D640005A7F02 /* RecapView.swift */,
 				0DB910CC2BE3A29E008B4341 /* ItineraryView1.swift */,
-				0D34152A2BE226A100B1075A /* VaticanView.swift */,
 			);
 			path = ItineraryViews;
 			sourceTree = "<group>";
@@ -252,12 +252,12 @@
 				72D51CAD2BE3A1D700327EA9 /* PlacesAPI.swift in Sources */,
 				0D6C2D302BE1029700CE0476 /* StartOrganizingView.swift in Sources */,
 				0DB910CD2BE3A29E008B4341 /* ItineraryView1.swift in Sources */,
-				0D34152B2BE226A200B1075A /* VaticanView.swift in Sources */,
 				AE2E1CA42BE3D640005A7F02 /* RecapView.swift in Sources */,
 				72B5724F2BE4DD560021A002 /* CommonStructs.swift in Sources */,
 				72D51CB62BE4392900327EA9 /* ConditionEnum.swift in Sources */,
 				72D51CB12BE3A24300327EA9 /* AutoCompleteAPI.swift in Sources */,
 				72DC59232BE675A300D02C1B /* CalculatedItinerary.swift in Sources */,
+				AE5751372BEA9D2A003FD95A /* ActivityView.swift in Sources */,
 				AE2E1C9E2BE3D50D005A7F02 /* City.swift in Sources */,
 				AE2E1CA02BE3D51F005A7F02 /* SharedCity.swift in Sources */,
 				AE5751312BE915CC003FD95A /* OnboardingIView.swift in Sources */,

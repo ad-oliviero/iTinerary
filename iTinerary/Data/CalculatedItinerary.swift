@@ -9,12 +9,16 @@ import Foundation
 import SwiftUI
 
 @Observable
+class SelectedActivities: ObservableObject {
+  var list: [Activity] = []
+}
+
 class CalculatedItinerary: ObservableObject {
   var activitiesPerDay: [[Activity]] = []
 
   init() {
 
-    for _ in 1...3 {  // Il 3 andrebbe cambiato con la data del viaggio dell'utente
+    for _ in 1...sharedCity.creating.durata {
       activitiesPerDay.append([])
     }
 
@@ -42,3 +46,5 @@ class CalculatedItinerary: ObservableObject {
 }
 
 var Itinerary = CalculatedItinerary()
+
+var selected = SelectedActivities()
