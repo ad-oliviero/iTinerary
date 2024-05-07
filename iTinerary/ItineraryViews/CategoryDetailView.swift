@@ -22,8 +22,13 @@ struct CategoryDetailView: View {
       }
       .navigationBarItems(
         trailing: NavigationLink(
-          destination: (selectedCategories.filter{$0.value}.keys.count > index + 1) ? AnyView(CategoryDetailView(
-            selectedCategories: selectedCategories, category: selectedCategories.filter{$0.value}.keys.sorted {$0.rawValue.displayName<$1.rawValue.displayName}[index + 1], index: index+1)) : AnyView(RecapView())
+          destination: (selectedCategories.filter { $0.value }.keys.count > index + 1)
+            ? AnyView(
+              CategoryDetailView(
+                selectedCategories: selectedCategories,
+                category: selectedCategories.filter { $0.value }.keys.sorted {
+                  $0.rawValue.displayName < $1.rawValue.displayName
+                }[index + 1], index: index + 1)) : AnyView(RecapView())
         ) {
           HStack {
             Text("Next")
@@ -42,7 +47,8 @@ struct CategoryDetailView: View {
   private func fetchPlaceId(for city: String) {
     Task {
       do {
-        let request = try await PlacesAPIRequest(placeId: sharedCity.creating.placeId, category: category, limit: 10, offset: 0)
+        let request = try await PlacesAPIRequest(
+          placeId: sharedCity.creating.placeId, category: category, limit: 10, offset: 0)
         for idx in 0..<(request.json["features"]! as AnyObject).count {
           print(request.getFromJson(path: "properties/name", index: idx))
         }

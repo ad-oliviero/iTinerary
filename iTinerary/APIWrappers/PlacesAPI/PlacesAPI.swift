@@ -29,10 +29,10 @@ class PlacesAPIRequest: GeoRequest {
     self.offset = offset
     var parameters = "filter=place:\(self.placeId)"
     parameters +=
-    "&categories=\(self.category)"
+      "&categories=\(self.category)"
     if conditions.count > 0 {
       parameters +=
-      "&conditions=\(self.conditions.filter{$0.value != 0}.map { $0.value == 1 ? $0.key.rawValue.value.requestValue : ($0.value == 2 ? $0.key.rawValue.notValue.requestValue : "")}.joined(separator: ","))"
+        "&conditions=\(self.conditions.filter{$0.value != 0}.map { $0.value == 1 ? $0.key.rawValue.value.requestValue : ($0.value == 2 ? $0.key.rawValue.notValue.requestValue : "")}.joined(separator: ","))"
     }
     parameters += "&limit=\(self.limit)&offset=\(self.offset)"
     try await super.init(apiType: "places?", apiVersion: "v2/", parameters: parameters)

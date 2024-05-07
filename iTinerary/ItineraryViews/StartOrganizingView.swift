@@ -113,7 +113,8 @@ struct StartOrganizingView: View {
           name: request.getFromJson(path: "properties/city", index: 0),
           placeId: request.getFromJson(path: "properties/place_id", index: 0)
         )
-        self.combinedText = "\(String(describing: sharedCity.creating.name)), \(request.getFromJson(path: "properties/state", index: 0)), \(request.getFromJson(path: "properties/country", index: 0))"
+        self.combinedText =
+          "\(String(describing: sharedCity.creating.name)), \(request.getFromJson(path: "properties/state", index: 0)), \(request.getFromJson(path: "properties/country", index: 0))"
         isFetchingData = false
         isErrorOccurred = false
       } catch {
