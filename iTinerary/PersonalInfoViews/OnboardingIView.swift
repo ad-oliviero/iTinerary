@@ -97,7 +97,8 @@ struct OnboardingView: View {
       .opacity(currentSlideIndex == 3 ? 1.0 : 0.0)  // Mostra il pulsante solo alla fine dell'onboarding
       .fullScreenCover(isPresented: $isNavigationActive) {
         // Naviga alla MainPageView quando la variabile di navigazione è attiva
-        MainPageView()
+        UserDefaults.standard.set(true, forKey: "KeyOnBoardingViewShown")
+        return MainPageView()
       }
     }
   }
