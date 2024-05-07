@@ -16,7 +16,6 @@
 		72D51CA32BE12A8A00327EA9 /* TestAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */; };
 		72D51CA52BE36FFF00327EA9 /* GeoAPIfy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */; };
 		72D51CAD2BE3A1D700327EA9 /* PlacesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CAC2BE3A1D700327EA9 /* PlacesAPI.swift */; };
-		72D51CAF2BE3A21A00327EA9 /* IsolinesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CAE2BE3A21A00327EA9 /* IsolinesAPI.swift */; };
 		72D51CB12BE3A24300327EA9 /* AutoCompleteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CB02BE3A24300327EA9 /* AutoCompleteAPI.swift */; };
 		72D51CB42BE436CA00327EA9 /* CategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CB32BE436CA00327EA9 /* CategoryEnum.swift */; };
 		72D51CB62BE4392900327EA9 /* ConditionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51CB52BE4392900327EA9 /* ConditionEnum.swift */; };
@@ -45,7 +44,6 @@
 		72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIView.swift; sourceTree = "<group>"; };
 		72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAPIfy.swift; sourceTree = "<group>"; };
 		72D51CAC2BE3A1D700327EA9 /* PlacesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPI.swift; sourceTree = "<group>"; };
-		72D51CAE2BE3A21A00327EA9 /* IsolinesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsolinesAPI.swift; sourceTree = "<group>"; };
 		72D51CB02BE3A24300327EA9 /* AutoCompleteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteAPI.swift; sourceTree = "<group>"; };
 		72D51CB32BE436CA00327EA9 /* CategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEnum.swift; sourceTree = "<group>"; };
 		72D51CB52BE4392900327EA9 /* ConditionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionEnum.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				72D51CB22BE4369400327EA9 /* PlacesAPI */,
 				72D51CA22BE12A8A00327EA9 /* TestAPIView.swift */,
 				72D51CA42BE36FFF00327EA9 /* GeoAPIfy.swift */,
-				72D51CAE2BE3A21A00327EA9 /* IsolinesAPI.swift */,
 				72D51CB02BE3A24300327EA9 /* AutoCompleteAPI.swift */,
 			);
 			path = APIWrappers;
@@ -258,7 +255,6 @@
 				0D34152B2BE226A200B1075A /* VaticanView.swift in Sources */,
 				AE2E1CA42BE3D640005A7F02 /* RecapView.swift in Sources */,
 				72B5724F2BE4DD560021A002 /* CommonStructs.swift in Sources */,
-				72D51CAF2BE3A21A00327EA9 /* IsolinesAPI.swift in Sources */,
 				72D51CB62BE4392900327EA9 /* ConditionEnum.swift in Sources */,
 				72D51CB12BE3A24300327EA9 /* AutoCompleteAPI.swift in Sources */,
 				72DC59232BE675A300D02C1B /* CalculatedItinerary.swift in Sources */,

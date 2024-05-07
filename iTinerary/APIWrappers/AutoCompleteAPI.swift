@@ -7,18 +7,8 @@
 
 import Foundation
 
-//struct AutocompleteData: Codable {
-//    let type: String
-//    let features: [Feature]
-//    let query: Query
-//}
-
 class AutoCompleteAPIRequest: GeoRequest {
-  var text: String
-  init(text: String!) {
-    self.text = text
-    super.init()
-    super.apiType = "geocode/autocomplete?"
-    parameters = "text=\(self.text)&type=city"
+  init(text: String) async throws {
+    try await super.init(apiType: "geocode/autocomplete?", parameters: "text=\(text)&type=city")
   }
 }
