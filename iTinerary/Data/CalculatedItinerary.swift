@@ -18,7 +18,8 @@ class CalculatedItinerary: ObservableObject {
 
   init() {
 
-    for _ in 1...sharedCity.creating.durata {
+    //    for _ in 1...sharedCity.creating.durata {
+    for _ in 1...3 {
       activitiesPerDay.append([])
     }
 

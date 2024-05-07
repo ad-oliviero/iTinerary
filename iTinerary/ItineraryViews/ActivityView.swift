@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ActivityView: View {
   var activity: Activity
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+  var body: some View {
+    Text( /*@START_MENU_TOKEN@*/"Hello, World!" /*@END_MENU_TOKEN@*/)
+  }
 }
 
 #Preview {
-    ActivityView(activity: Activity())
+  ActivityView(activity: Activity())
 }

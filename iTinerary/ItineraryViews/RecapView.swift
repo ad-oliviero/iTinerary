@@ -29,10 +29,23 @@ struct RecapView: View {
         }
         .listStyle(InsetGroupedListStyle())
 
-        Button(action: {
+        Button {
           sharedCity.toDo.append(sharedCity.creating)
+          sharedCity.creating = City()
+
           isNextViewActive = true
-        }) {
+          // Getting the city image
+          Task {
+            let request = try await PlacesDetailsAPIRequest(placeId: sharedCity.toDo.last!.placeId)
+            for idx in 0..<(request.json["features"]! as AnyObject).count {
+              let wikidataID = request.getFromJson(
+                path: "properties/wiki_and_media/wikidata", index: idx)
+              let wikidata = try await WikiDataRequest(id: wikidataID)
+              try await wikidata.getImage()
+              sharedCity.toDo[sharedCity.toDo.count - 1].image = wikidata.imageName!
+            }
+          }
+        } label: {
           HStack {
             Text("Save")
             Image(systemName: "square.and.arrow.down")

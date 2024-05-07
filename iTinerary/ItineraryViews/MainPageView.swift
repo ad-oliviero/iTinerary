@@ -23,27 +23,37 @@ struct MainPageView: View {
           VStack(spacing: 20) {
             ForEach(ToDo) { city in
               ZStack(alignment: .bottomLeading) {
+                {
+                  if let imageFile = FileManager.default.urls(
+                    for: .documentDirectory, in: .userDomainMask
+                  ).first?.appendingPathComponent(city.image) {
+                    do {
+                      let imageData = try Data(contentsOf: imageFile)
+                      return Image(uiImage: UIImage(data: imageData)!)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 360, height: 150)
+                        .cornerRadius(10)
+                        .overlay(Color.black.opacity(0.5))
+                    } catch {
+                      print(error.localizedDescription)
+                    }
+                  }
+                  return Image(uiImage: UIImage())
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 360, height: 150)
+                    .cornerRadius(10)
+                    .overlay(Color.gray.opacity(1))
+                }()
+                Text(city.name)
+                  .foregroundColor(.white)
+                  .font(.headline)
+                  .fontWeight(.bold)
+                  .padding()
 
-                Image(city.image.lowercased())
-                  .resizable()
-                  .scaledToFill()
-                  .frame(width: 360, height: 150)
                   .cornerRadius(10)
-                  .overlay(
-                    Color.black.opacity(0.5)
-                  )
-                  .overlay(
-                    Text(city.name)
-                      .foregroundColor(.white)
-                      .font(.headline)
-                      .fontWeight(.bold)
-                      .padding()
-
-                      .cornerRadius(10)
-                      .padding(.bottom, 5),
-                    alignment: .bottomLeading
-                  )
-
+                  .padding(.bottom, 5)
               }
 
               .frame(width: 360)
@@ -84,7 +94,6 @@ struct MainPageView: View {
                       alignment: .bottomLeading
                     )
                 }
-
                 .frame(width: 360)  // Larghezza fissa per ogni card
               }
               .cornerRadius(10)
