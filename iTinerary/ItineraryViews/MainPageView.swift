@@ -24,40 +24,45 @@ struct MainPageView: View {
             ForEach(ToDo) { city in
               ZStack(alignment: .bottomLeading) {
                 {
+                  var imageLoaded = false
                   if let imageFile = FileManager.default.urls(
                     for: .documentDirectory, in: .userDomainMask
                   ).first?.appendingPathComponent(city.image) {
                     do {
                       let imageData = try Data(contentsOf: imageFile)
-                      return Image(uiImage: UIImage(data: imageData)!)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 360, height: 150)
-                        .cornerRadius(10)
-                        .overlay(Color.black.opacity(0.5))
+                      imageLoaded = true
+                      return ZStack {
+                        Image(uiImage: UIImage(data: imageData)!)
+                          .resizable()
+                          .scaledToFill()
+                          .frame(width: 360, height: 150)
+                          .cornerRadius(10)
+                          .overlay(Color.black.opacity(0.5))
+                        if !imageLoaded { ProgressView() }
+                      }
                     } catch {
                       print(error.localizedDescription)
                     }
                   }
-                  return Image(uiImage: UIImage())
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 360, height: 150)
-                    .cornerRadius(10)
-                    .overlay(Color.gray.opacity(1))
+                  return ZStack {
+                    Image(uiImage: UIImage())
+                      .resizable()
+                      .scaledToFill()
+                      .frame(width: 360, height: 150)
+                      .cornerRadius(10)
+                      .overlay(Color.gray.opacity(1))
+                    if !imageLoaded { ProgressView() }
+                  }
                 }()
                 Text(city.name)
                   .foregroundColor(.white)
                   .font(.headline)
                   .fontWeight(.bold)
                   .padding()
-
                   .cornerRadius(10)
                   .padding(.bottom, 5)
               }
-
               .frame(width: 360)
-
             }
             .cornerRadius(10)
           }
