@@ -66,10 +66,10 @@ struct StartOrganizingView: View {
             }
           }
 
-          Section(header: Text("Budget")) {
-            TextField("Enter your budget", value: $budget, formatter: NumberFormatter())
-              .keyboardType(.numberPad)
-          }
+          //          Section(header: Text("Budget")) {
+          //            TextField("Enter your budget", value: $budget, formatter: NumberFormatter())
+          //              .keyboardType(.numberPad)
+          //          }
         }.listStyle(InsetGroupedListStyle())
           .navigationTitle("Start organizing!")
           .navigationBarItems(

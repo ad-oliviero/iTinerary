@@ -2,14 +2,14 @@ import SwiftUI
 
 struct MainPageView: View {
   @State private var isModalPresented = false
-  @State var itineraries = sharedData.itineraries
+  @ObservedObject var globalData = sharedData
 
   var body: some View {
     NavigationStack {
       ScrollView(.vertical, showsIndicators: false) {
 
         VStack(alignment: .leading, spacing: 20) {
-          //          if !(sharedData.itineraries.isEmpty) {
+          //          if !(globalData.itineraries.isEmpty) {
           //                      Text("To do")
           //                        .font(.headline)
           //                        .padding(.top)
@@ -18,7 +18,7 @@ struct MainPageView: View {
           //                    }
 
           VStack(spacing: 20) {
-            ForEach(itineraries) { itinerary in
+            ForEach(globalData.itineraries) { itinerary in
               ZStack(alignment: .bottomLeading) {
                 {
                   var imageLoaded = false
@@ -110,8 +110,8 @@ struct MainPageView: View {
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
           Button(action: {
-            sharedData.itineraries.append(Itinerary())
-            sharedData.currentIdx += 1
+            globalData.itineraries.append(Itinerary())
+            globalData.currentIdx = globalData.itineraries.count - 1
             //            if selectedConditions.values.allSatisfy({ $0 == 0 || $0 == 1 }) {
             isModalPresented.toggle()
             //            } else {

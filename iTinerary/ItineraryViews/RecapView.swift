@@ -21,10 +21,10 @@ struct RecapView: View {
                 NavigationLink(destination: ItineraryView1()) {
                   HStack {
                     Text(place.key.name)
-                    Spacer()
-                    VStack(alignment: .trailing) {
-                      Text(String(place.key.durata))
-                    }
+                    //                    Spacer()
+                    //                    VStack(alignment: .trailing) {
+                    //                      Text(String(place.key.durata))
+                    //                    }
                   }
                 }
               }

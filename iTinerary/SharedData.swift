@@ -8,27 +8,30 @@
 import Foundation
 
 class SharedData: ObservableObject {
-  var itineraries: [Itinerary]
+  @Published var itineraries: [Itinerary]
   var currentIdx: Int
 
-  private let itinerariesURL: URL? =
+  private var itinerariesURL: URL? =
     (FileManager.default.urls(
       for: .documentDirectory, in: .userDomainMask
     ).first?.appendingPathComponent("itineraries.json"))
   init() {
-    if itinerariesURL != nil {
+    var tempItineraries: [Itinerary] = []
+    var tempCurrentIdx: Int = -1
+
+    if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?
+      .appendingPathComponent("itineraries.json")
+    {
       do {
-        itineraries = try JSONDecoder().decode(
-          [Itinerary].self, from: Data(contentsOf: itinerariesURL!))
-        currentIdx = itineraries.count
+        tempItineraries = try JSONDecoder().decode([Itinerary].self, from: Data(contentsOf: url))
+        tempCurrentIdx = tempItineraries.count
       } catch {
-        itineraries = []
-        currentIdx = -1
+        print("Error decoding itineraries: \(error)")
       }
-    } else {
-      itineraries = []
-      currentIdx = -1
     }
+
+    itineraries = tempItineraries
+    currentIdx = tempCurrentIdx
   }
   public func save() {
     try! JSONEncoder().encode(itineraries).write(to: itinerariesURL!)
