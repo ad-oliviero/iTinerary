@@ -15,31 +15,17 @@ struct MultiDatePicker: View {
 
       DatePicker("End Date", selection: $endDate, displayedComponents: .date)
     }
-    .onChange(
-      of: startDate,
-      perform: { _ in
-        calculateDuration()
-      }
-    )
-    .onChange(
-      of: endDate,
-      perform: { _ in
-        calculateDuration()
-      }
-    )
-    .onAppear {
-      calculateDuration()
-    }
+    .onChange(of: startDate) { _, _ in calculateDuration() }
+    .onChange(of: endDate) { _, _ in calculateDuration() }
+    .onAppear { calculateDuration() }
   }
 
   private func calculateDuration() {
     let calendar = Calendar.current
     let components = calendar.dateComponents([.day], from: startDate, to: endDate)
-    if let days = components.day {
-      onDurationChanged(days + 1)  // Include anche l'ultimo giorno nel conteggio
-    } else {
-      onDurationChanged(0)
-    }
+    onDurationChanged((components.day ?? 0) + 2)
+    print("Duration: \((components.day ?? 0) + 2)")
+
   }
 }
 
@@ -47,7 +33,7 @@ struct StartOrganizingView: View {
   @State var combinedText = ""
   @State var startDate = Date()
   @State var endDate = Date()
-  @State var duration = 0
+  @State var dayCount = 0
   @State var budget = 0
   @State private var isFetchingData = false
   @State private var isErrorOccurred = false
@@ -76,7 +62,7 @@ struct StartOrganizingView: View {
           Section(header: Text("Dates")) {
             MultiDatePicker(title: "Select Travel Dates", startDate: $startDate, endDate: $endDate)
             { calculatedDuration in
-              self.duration = calculatedDuration
+              self.dayCount = calculatedDuration
             }
           }
 
@@ -90,9 +76,8 @@ struct StartOrganizingView: View {
             trailing: NavigationLink(destination: PickInterestsView(), isActive: $isNextViewActive)
             {
               Button(action: {
-                // Aggiungi direttamente la città al modello condiviso
-                sharedCity.creating.budget = budget
-                sharedCity.creating.durata = duration
+                sharedData.itineraries[sharedData.currentIdx].budget = budget
+                sharedData.itineraries[sharedData.currentIdx].dayCount = dayCount
                 isNextViewActive = true
               }) {
                 Text("Next")
@@ -109,12 +94,12 @@ struct StartOrganizingView: View {
     Task {
       do {
         let request = try await AutoCompleteAPIRequest(text: city)
-        sharedCity.creating = City(
-          name: request.getFromJson(path: "properties/city", index: 0),
-          placeId: request.getFromJson(path: "properties/place_id", index: 0)
-        )
+        sharedData.itineraries[sharedData.currentIdx].city.name = request.getFromJson(
+          path: "properties/city", index: 0)
+        sharedData.itineraries[sharedData.currentIdx].city.placeId = request.getFromJson(
+          path: "properties/place_id", index: 0)
         self.combinedText =
-          "\(String(describing: sharedCity.creating.name)), \(request.getFromJson(path: "properties/state", index: 0)), \(request.getFromJson(path: "properties/country", index: 0))"
+          "\(sharedData.itineraries[sharedData.currentIdx].city.name), \(request.getFromJson(path: "properties/state", index: 0)), \(request.getFromJson(path: "properties/country", index: 0))"
         isFetchingData = false
         isErrorOccurred = false
       } catch {

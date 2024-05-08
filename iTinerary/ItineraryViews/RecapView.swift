@@ -1,25 +1,29 @@
 import SwiftUI
 
 struct RecapView: View {
-  var itinerary = CalculatedItinerary()
   @State private var isNextViewActive = false
-  var myCity = sharedCity.creating
-  var duration = sharedCity.creating.durata
+
+  init() {
+    sharedData.itineraries[sharedData.currentIdx].splitPlacesInDays()
+  }
 
   var body: some View {
     NavigationStack {
       VStack {
         List {
-          ForEach(0..<itinerary.activitiesPerDay.count, id: \.self) { dayIndex in
-            Section(header: Text("Day \(dayIndex + 1)")) {
-              ForEach(itinerary.activitiesPerDay[dayIndex], id: \.self) { activity in
+          ForEach(0..<sharedData.itineraries[sharedData.currentIdx].dayCount, id: \.self) { idx in
+            Section(header: Text("Day \(idx + 1)")) {
+              ForEach(
+                sharedData.itineraries[sharedData.currentIdx].days[idx].sorted {
+                  $0.key.name < $1.key.name
+                }, id: \.key
+              ) { place in
                 NavigationLink(destination: ItineraryView1()) {
                   HStack {
-                    Text(activity.place)
+                    Text(place.key.name)
                     Spacer()
                     VStack(alignment: .trailing) {
-                      Text(activity.starttime)
-                      Text(activity.endtime)
+                      Text(String(place.key.durata))
                     }
                   }
                 }
@@ -30,19 +34,18 @@ struct RecapView: View {
         .listStyle(InsetGroupedListStyle())
 
         Button {
-          sharedCity.toDo.append(sharedCity.creating)
-          sharedCity.creating = City()
-
           isNextViewActive = true
           // Getting the city image
           Task {
-            let request = try await PlacesDetailsAPIRequest(placeId: sharedCity.toDo.last!.placeId)
+            let request = try await PlacesDetailsAPIRequest(
+              placeId: sharedData.itineraries[sharedData.currentIdx].city.placeId)
             for idx in 0..<(request.json["features"]! as AnyObject).count {
               let wikidataID = request.getFromJson(
                 path: "properties/wiki_and_media/wikidata", index: idx)
               let wikidata = try await WikiDataRequest(id: wikidataID)
               try await wikidata.getImage()
-              sharedCity.toDo[sharedCity.toDo.count - 1].image = wikidata.imageName!
+              sharedData.itineraries[sharedData.currentIdx].city.image = wikidata.imageName!
+              sharedData.save()
             }
           }
         } label: {
@@ -58,6 +61,7 @@ struct RecapView: View {
       }
     }
   }
+
 }
 
 struct RecapView_Previews: PreviewProvider {

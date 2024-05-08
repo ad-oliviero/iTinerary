@@ -5,8 +5,7 @@ struct CategoryDetailView: View {
   let category: Category
   let index: Int
   @State var isLoading = false
-  @State var activityList = selected
-  @State var selectedActivities: Set<Activity> = []
+  @State var selectedPlaces: [(Place, Bool)] = []
 
   init(selectedCategories: [Category: Bool], category: Category, index: Int) {
     self.selectedCategories = selectedCategories
@@ -20,19 +19,29 @@ struct CategoryDetailView: View {
         ProgressView().padding()
       } else {
         List {
-          ForEach(selected.list.indices, id: \.self) { index in
-            let activity = selected.list[index]
+          ForEach(selectedPlaces.indices, id: \.self) { idx in
+            let place = selectedPlaces[idx].0
             HStack {
               Button(action: {
-                toggleSelection(for: activity)
+                if sharedData.itineraries[sharedData.currentIdx].allPlaces.contains(
+                  selectedPlaces[idx].0)
+                {
+                  selectedPlaces[idx].1 = false
+                  sharedData.itineraries[sharedData.currentIdx].allPlaces.removeAll(where: {
+                    $0 == selectedPlaces[idx].0
+                  })
+                } else {
+                  selectedPlaces[idx].1 = true
+                  sharedData.itineraries[sharedData.currentIdx].allPlaces.append(
+                    selectedPlaces[idx].0)
+                }
               }) {
                 Image(
-                  systemName: selectedActivities.contains(activity)
-                    ? "checkmark.circle.fill" : "circle")
+                  systemName: selectedPlaces[idx].1 ? "checkmark.circle.fill" : "circle")
               }
-              Text(activity.place)
+              Text(place.name)
                 .onTapGesture {
-                  ActivityView(activity: activity)
+                  //                            ActivityView(activity: activity)
                 }
             }
           }
@@ -60,58 +69,36 @@ struct CategoryDetailView: View {
         }
       }
     )
-    .onAppear {
-      self.fetchPlaceId(for: sharedCity.creating.name)
-    }
+    .onAppear { self.fetchPlaceId() }
   }
 
-  private func fetchPlaceId(for city: String) {
+  private func fetchPlaceId() {
     Task {
       isLoading = true
       do {
         let request = try await PlacesAPIRequest(
-          placeId: sharedCity.creating.placeId, category: category, limit: 10, offset: 0)
-        var activities: [Activity] = []
-        for idx in 0..<(request.json["features"]! as AnyObject).count {
-          let placeNames = request.getFromJson(path: "properties/name", index: idx).components(
-            separatedBy: "")
-          let placeLat = request.getFromJson(path: "properties/lat", index: idx).components(
-            separatedBy: "")
-          let placeLon = request.getFromJson(path: "properties/lon", index: idx).components(
-            separatedBy: "")
-
-          for name in placeNames {
-            activities.append(Activity(place: name))
-          }
-          for (i, lat) in placeLat.enumerated() {
-            activities[i].lat = lat
-          }
-          for (i, lon) in placeLon.enumerated() {
-            activities[i].lon = lon
-          }
-
+          placeId: sharedData.itineraries[sharedData.currentIdx].city.placeId, category: category,
+          limit: 10, offset: 0)
+        if request.json["features"] == nil {
+          isLoading = false
+          return
         }
-        activityList.list.append(contentsOf: activities)
+        for idx in 0..<(request.json["features"]! as AnyObject).count {
+          let placeName = request.getFromJson(path: "properties/name", index: idx)
+          let placeId = request.getFromJson(path: "properties/place_id", index: idx)
+          selectedPlaces.append(
+            (Place(name: placeName, image: "", placeId: placeId, category: category), false))
+        }
       } catch {
         print("Error fetching place ID: \(error)")
       }
       isLoading = false
     }
   }
-
-  private func toggleSelection(for activity: Activity) {
-    if selectedActivities.contains(activity) {
-      selectedActivities.remove(activity)
-    } else {
-      selectedActivities.insert(activity)
-    }
-  }
 }
 
-#if DEBUG
-  struct CategoryDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-      CategoryDetailView(selectedCategories: [:], category: .camping, index: 0)
-    }
+struct CategoryDetailView_Previews: PreviewProvider {
+  static var previews: some View {
+    CategoryDetailView(selectedCategories: [:], category: .camping, index: 0)
   }
-#endif
+}

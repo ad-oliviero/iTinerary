@@ -1,24 +1,8 @@
 import SwiftUI
 
 struct PickInterestsView: View {
-  @State var selectedCategories: [Category: Bool]
-  let selectedCategories_JSON: URL =
-    (FileManager.default.urls(
-      for: .documentDirectory, in: .userDomainMask
-    ).first?.appendingPathComponent("selectedCategories.json"))!
-
-  init() {
-    do {
-      let data = try Data(contentsOf: selectedCategories_JSON)
-      self.selectedCategories = try JSONDecoder().decode([Category: Bool].self, from: data)
-    } catch {
-      print(error.localizedDescription)
-      self.selectedCategories = Category.allCases.reduce(into: [:]) {
-        result, category in
-        result[category] = false
-      }
-    }
-  }
+  @State var selectedCategories: [Category: Bool] = Dictionary(
+    uniqueKeysWithValues: Category.allCases.map { ($0, false) })
 
   var body: some View {
     NavigationStack {
@@ -34,7 +18,6 @@ struct PickInterestsView: View {
               let selected = selectedCategories[category] ?? false
               Button(action: {
                 selectedCategories[category]?.toggle()
-                saveSelectedCategories()
               }) {
                 Text(category.rawValue.displayName)
                   .padding()
@@ -52,12 +35,15 @@ struct PickInterestsView: View {
       .navigationBarTitle("Pick your interests")
       .navigationBarItems(
         trailing: NavigationLink(
-          destination: CategoryDetailView(
-            selectedCategories: selectedCategories,
-            category: selectedCategories.filter { $0.value }.count != 0
-              ? selectedCategories.filter { $0.value }.keys.sorted {
-                $0.rawValue.displayName < $1.rawValue.displayName
-              }[0] : .tourism, index: 0)
+          destination: {
+            sharedData.itineraries[sharedData.currentIdx].categories = selectedCategories
+            return CategoryDetailView(
+              selectedCategories: selectedCategories,
+              category: selectedCategories.filter { $0.value }.count != 0
+                ? selectedCategories.filter { $0.value }.keys.sorted {
+                  $0.rawValue.displayName < $1.rawValue.displayName
+                }[0] : .tourism, index: 0)
+          }()
         ) {
           HStack {
             Text("Next")
@@ -67,15 +53,6 @@ struct PickInterestsView: View {
           }
         }.disabled(selectedCategories.filter { $0.value }.count < 3)
       )
-    }
-  }
-
-  private func saveSelectedCategories() {
-    do {
-      let data = try JSONEncoder().encode(selectedCategories)
-      try data.write(to: selectedCategories_JSON)
-    } catch {
-      print(error.localizedDescription)
     }
   }
 }
