@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7250B5662BDFB13D00DED6D8"
-               BuildableName = "iTravel.app"
-               BlueprintName = "iTravel"
+               BuildableName = "iTinerary.app"
+               BlueprintName = "iTinerary"
                ReferencedContainer = "container:iTinerary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7250B5662BDFB13D00DED6D8"
-            BuildableName = "iTravel.app"
-            BlueprintName = "iTravel"
+            BuildableName = "iTinerary.app"
+            BlueprintName = "iTinerary"
             ReferencedContainer = "container:iTinerary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7250B5662BDFB13D00DED6D8"
-            BuildableName = "iTravel.app"
-            BlueprintName = "iTravel"
+            BuildableName = "iTinerary.app"
+            BlueprintName = "iTinerary"
             ReferencedContainer = "container:iTinerary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -174,8 +174,8 @@
 			);
 			dependencies = (
 			);
-			name = iTravel;
-			productName = iTravel;
+			name = iTinerary;
+			productName = iTinerary;
 			productReference = 7250B5672BDFB13D00DED6D8 /* iTravel.app */;
 			productType = "com.apple.product-type.application";
 		};
